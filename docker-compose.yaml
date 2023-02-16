@@ -28,17 +28,6 @@ services:
       DATABASE_URL: postgresql://postsdb:password@postgres/postsdb
       WAIT_HOSTS: postgres:5432
 
-  users-service:
-    build:
-      context: ./users-service
-      dockerfile: ./Dockerfile.dev
-    ports:
-      - "8002:8000"
-    volumes:
-      - ./users-service:/app
-    environment:
-      DATABASE_URL: postgresql://usersdb:password@postgres/usersdb
-      WAIT_HOSTS: postgres:5432
 
   postgres:
     build:
@@ -47,7 +36,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_MULTIPLE_DATABASES= usersdb,postsdb
+      - POSTGRES_MULTIPLE_DATABASES= postsdb
       - POSTGRES_PASSWORD=admin
     ports:
       - 15432:5432

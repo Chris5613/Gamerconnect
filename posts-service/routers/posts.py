@@ -9,3 +9,5 @@ def create_post(
     post: postIn,
     repo: PostRepository = Depends()):
     return repo.create(post)
+
+
