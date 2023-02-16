@@ -16,26 +16,26 @@ services:
       # REACT_APP_USER: http://localhost:8002
       # REACT_APP_GAMER: http://localhost:8001
 
-  posts_api:
+  posts-service:
     build:
-      context: ./posts_api
+      context: ./posts-service
       dockerfile: ./Dockerfile.dev
     ports:
       - "8001:8000"
     volumes:
-      - ./posts_api:/app
+      - ./posts-service:/app
     environment:
       DATABASE_URL: postgresql://postsdb:password@postgres/postsdb
       WAIT_HOSTS: postgres:5432
 
-  users_api:
+  users-service:
     build:
-      context: ./users_api
+      context: ./users-service
       dockerfile: ./Dockerfile.dev
     ports:
       - "8002:8000"
     volumes:
-      - ./users_api:/app
+      - ./users-service:/app
     environment:
       DATABASE_URL: postgresql://usersdb:password@postgres/usersdb
       WAIT_HOSTS: postgres:5432
