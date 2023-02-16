@@ -7,7 +7,12 @@ steps = [
             title varchar(50) NOT NULL,
             description varchar(256) NOT NULL,
             picture_URL text NULL,
-            games varchar(50) NOT NULL,
+            user_id int NOT NULL,
+            game_id int NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users(id),
+            FOREIGN Key (game_id) REFERENCES games(id)
+
+
         );
         """,
         # "Down" SQL statement
@@ -15,22 +20,17 @@ steps = [
         DROP TABLE post;
         """
     ],
-    # [
-    #     # "Up" SQL statement
-    #     """
-    #     CREATE TABLE big_dummy (
-    #         id SERIAL PRIMARY KEY NOT NULL,
-    #         required_limited_text VARCHAR(1000) NOT NULL,
-    #         required_unlimited_text TEXT NOT NULL,
-    #         required_date_time TIMESTAMP NOT NULL,
-    #         automatically_set_date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    #         required_integer INTEGER NOT NULL,
-    #         required_money MONEY NOT NULL
-    #     );
-    #     """,
-    #     # "Down" SQL statement
-    #     """
-    #     DROP TABLE big_dummy;
-    #     """
-    # ]
+    [
+        # "Up" SQL statement
+        """
+        CREATE TABLE games (
+            id SERIAL PRIMARY KEY NOT NULL,
+            title varchar(20) NOT NULL
+        );
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE games;
+        """
+    ]
 ]
