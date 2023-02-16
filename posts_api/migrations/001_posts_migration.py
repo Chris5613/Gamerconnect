@@ -2,22 +2,17 @@ steps = [
     [
         # "Up" SQL statement
         """
-        CREATE TABLE post (
-            id SERIAL PRIMARY KEY NOT NULL,
-            title varchar(50) NOT NULL,
-            description varchar(256) NOT NULL,
-            picture_URL text NULL,
-            user_id int NOT NULL,
-            game_id int NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES users(id),
-            FOREIGN Key (game_id) REFERENCES games(id)
+            CREATE TABLE users (
+                id serial primary key NOT NULL,
+                username varchar(50) NOT NULL UNIQUE,
+                user_password varchar(50) NOT NULL,
+                email varchar(100) NOT NULL
 
-
-        );
+            );
         """,
         # "Down" SQL statement
         """
-        DROP TABLE post;
+        DROP TABLE users;
         """
     ],
     [
@@ -31,6 +26,24 @@ steps = [
         # "Down" SQL statement
         """
         DROP TABLE games;
+        """
+    ],
+    [
+        # "Up" SQL statement
+        """
+        CREATE TABLE post (
+            id SERIAL PRIMARY KEY NOT NULL,
+            title varchar(50) NOT NULL,
+            description varchar(256) NOT NULL,
+            picture_url text NULL,
+            user_id INTEGER NOT NULL REFERENCES users(id),
+            game_id INTEGER NOT NULL REFERENCES games(id)
+
+        );
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE post;
         """
     ]
 ]
