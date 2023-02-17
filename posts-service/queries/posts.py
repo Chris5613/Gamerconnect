@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Union
 from queries.pool import pool
 
 
@@ -20,6 +20,33 @@ class postOut(BaseModel):
 
 
 class PostRepository:
+    def get_all(self) -> List[postOut]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, title, description, picture_url, user_id, game_id
+                        FROM post
+                        """
+                    )
+                    result = []
+                    for record in db:
+                        post = postOut(
+                            id=record[0],
+                            title=record[1],
+                            description=record[2],
+                            picture_url=record[3],
+                            user_id=record[4],
+                            game_id=record[5],
+
+                        )
+                        result.append(post)
+                    return result
+        except Exception:
+            return {"message": "could not get all posts"}
+
+
     def create(self, post: postIn) -> postOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
