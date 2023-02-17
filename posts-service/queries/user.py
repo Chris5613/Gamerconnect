@@ -36,3 +36,19 @@ class UserRepository:
                 id = result.fetchone()[0]
                 old_data = user.dict()
                 return UserOut(id=id,**old_data)
+
+    def delete(self, user_id: int):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM users
+                        WHERE id = %s
+                        """,
+                        [user_id]
+                    )
+                    return {"User deleted": user_id}
+        except Exception as e:
+            print(e)
+            return {"User has not been deleted"}
