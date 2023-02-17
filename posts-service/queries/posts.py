@@ -57,7 +57,6 @@ class PostRepository:
                     Values
                         (%s, %s, %s, %s, %s)
                     RETURNING id;
-
                     """,
                     [
                         post.title,
@@ -70,3 +69,19 @@ class PostRepository:
                 id = result.fetchone()[0]
                 old_data = post.dict()
                 return postOut(id=id, **old_data)
+
+    def delete(self,post_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM post
+                        WHERE id = %s
+                        """,
+                        [post_id],
+                    )
+                    return {"deleted":True}
+        except Exception as e:
+            print(e)
+            return {"deleted":False}
