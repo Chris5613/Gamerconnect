@@ -18,7 +18,6 @@ def delete_post(
 
 
 @router.get("/post", response_model=List[postOut])
-def get_all(
-    repo: PostRepository = Depends(),
-    ):
+def get_all_post(
+    repo: PostRepository = Depends()):
     return repo.get_all()

@@ -84,4 +84,4 @@ class PostRepository:
                     return {"deleted":True}
         except Exception as e:
             print(e)
-            return {"deleted":False}
+            return {"Could not be deleted"}
