@@ -36,7 +36,7 @@ class UserRepository:
                 return self.user_into_out(id,user)
 
 
-    def delete(self, user_id: int):
+    def delete(self, user_id: int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -47,10 +47,10 @@ class UserRepository:
                         """,
                         [user_id]
                     )
-                    return {"User deleted": user_id}
+                    return {"User deleted": True}
         except Exception as e:
             print(e)
-            return {"User has not been deleted"}
+            return {"User deleted": False}
 
     def update(self, user_id:int, user: UserIn) -> UserOut:
         try:

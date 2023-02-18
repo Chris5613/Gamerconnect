@@ -70,6 +70,7 @@ class PostRepository:
                 old_data = post.dict()
                 return postOut(id=id, **old_data)
 
+
     def delete(self,post_id: int) -> bool:
         try:
             with pool.connection() as conn:
