@@ -40,14 +40,16 @@ class UserRepository:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    db.execute(
+                    result = db.execute(
                         """
                         DELETE FROM users
                         WHERE id = %s
+                        RETURNING id
                         """,
                         [user_id]
                     )
-                    return {"User deleted": True}
+                    id = result.fetchone()[0]
+                    return {f"User {id} deleted": True}
         except Exception as e:
             print(e)
             return {"User deleted": False}

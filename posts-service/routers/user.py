@@ -16,8 +16,8 @@ def update_user(
     repo: UserRepository = Depends(),) -> UserOut:
     return repo.update(user_id,user)
 
-@router.delete("/delete/{user_id}", response_model=bool)
+@router.delete("/delete/{user_id}")
 def delete_user(
     user_id: int,
-    repo: UserRepository = Depends(),) -> bool:
+    repo: UserRepository = Depends(),):
     return repo.delete(user_id)
