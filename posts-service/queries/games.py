@@ -20,12 +20,13 @@ class GamesRepository:
                         FROM games
                         """
                     )
-                    return [
-                        GamesOut(
+                    result = []
+                    for record in db:
+                        game = GamesOut(
                             id = record[0],
                             title = record[1]
                         )
-                        for record in db
-                    ]
+                        result.append(game)
+                    return result
         except Exception:
             return {"message": "Could not retrieve games"}
