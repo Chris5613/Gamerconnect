@@ -34,3 +34,11 @@ def get_post_by_user_id(
     repo: PostRepository = Depends()
 ):
     return repo.get_byuserid(users_id)
+
+@router.put("/post/{post_id}", response_model=postOut)
+def update_post(
+    post_id: int,
+    post: postIn,
+    repo: PostRepository = Depends(),
+) -> postOut:
+    return repo.update(post_id, post)
