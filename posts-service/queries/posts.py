@@ -141,19 +141,6 @@ class PostRepository:
                             user_id=record[4],
                             game_id=record[5]
                         ) for record in db if record[4] == users_id]
-                    #for record in db:
-                        #print(record)
-                        #post = postOut(
-                            #id=record[0],
-                            #title=record[1],
-                            #description=record[2],
-                            #picture_url=record[3],
-                            #user_id=record[4],
-                            #game_id=record[5]
-                       # )
-                        #result.append(post)
-                    #if len(result) == 0:
-                        #return {"error": "This user has no posts"}
                     return result
 
         except Exception as e:
