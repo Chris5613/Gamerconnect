@@ -27,3 +27,10 @@ def get_post(
     post_id: int,
     repo: PostRepository = Depends()):
     return repo.get_one(post_id)
+
+@router.get("/post/{users_id}", response_model=Union[postOut, Error])
+def get_post_by_user_id(
+    users_id: int,
+    repo: PostRepository = Depends()
+):
+    return repo.get_byuserid(users_id)
