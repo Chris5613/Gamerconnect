@@ -131,3 +131,32 @@ class PostRepository:
             user_id=record[4],
             game_id=record[5],
             )
+
+    def update(self, post_id: int, post: postIn) -> postOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        UPDATE post
+                        SET title = %s
+                            , description = %s
+                            , picture_url = %s
+                            , user_id = %s
+                            , game_id = %s
+                        WHERE id = %s
+                        """,
+                        [
+                            post.title,
+                            post.description,
+                            post.picture_url,
+                            post.user_id,
+                            post.game_id,
+                            post_id
+
+                        ]
+                    )
+                    old_data = post.dict()
+                    return postOut(id=post_id, **old_data)
+        except Exception:
+            return {"message": "could not update post"}

@@ -27,3 +27,11 @@ def get_post(
     post_id: int,
     repo: PostRepository = Depends()):
     return repo.get_one(post_id)
+
+@router.put("/post/{post_id}", response_model=postOut)
+def update_post(
+    post_id: int,
+    post: postIn,
+    repo: PostRepository = Depends(),
+) -> postOut:
+    return repo.update(post_id, post)
