@@ -145,7 +145,7 @@ class PostRepository:
 
         except Exception as e:
             print(e)
-            return {"Could not get users posts"}
+            return {"Could not get user's posts"}
 
     def post_into_out(self, id: int, post: postOut):
         old_data = post.dict()
