@@ -124,11 +124,13 @@ class PostRepository:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        select id, title, description, picture_url, game_id
+                        select id, title, description, picture_url, game_id from post
                         WHERE user_id = %s
                         """,
                         [users_id],
                     )
+                    print(db)
+                    print(conn)
                     result = []
                     for record in db:
                         post = postOut(
@@ -140,6 +142,8 @@ class PostRepository:
                             game_id=record[4]
                         )
                         result.append(post)
+                    #if len(result) == 0:
+                        #return {"error": "This user has no posts"}
                     return result
 
         except Exception as e:

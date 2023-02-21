@@ -28,7 +28,7 @@ def get_post(
     repo: PostRepository = Depends()):
     return repo.get_one(post_id)
 
-@router.get("/post/{users_id}", response_model=Union[postOut, Error])
+@router.get("/post/person/{users_id}", response_model=Union[postOut, Error])
 def get_post_by_user_id(
     users_id: int,
     repo: PostRepository = Depends()
