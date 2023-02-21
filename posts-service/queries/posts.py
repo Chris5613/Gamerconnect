@@ -118,30 +118,40 @@ class PostRepository:
             print(e)
             return {"Could not be deleted"}
 
-    def get_byuserid(self, users_id) -> Union[Error, List[postOut]]:
+    def get_byuserid(self, users_id: int) -> Union[Error, List[postOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    db.execute(
+                    result = db.execute(
                         """
-                        select id, title, description, picture_url, game_id from post
-                        WHERE user_id = %s
+                        SELECT id
+                            , title
+                            , description
+                            , picture_url
+                            , user_id
+                            , game_id
+                        FROM post
                         """,
-                        [users_id],
                     )
-                    print(db)
-                    print(conn)
-                    result = []
-                    for record in db:
-                        post = postOut(
+                    result = [postOut(
                             id=record[0],
                             title=record[1],
                             description=record[2],
                             picture_url=record[3],
-                            user_id=users_id,
-                            game_id=record[4]
-                        )
-                        result.append(post)
+                            user_id=record[4],
+                            game_id=record[5]
+                        ) for record in db if record[4] == users_id]
+                    #for record in db:
+                        #print(record)
+                        #post = postOut(
+                            #id=record[0],
+                            #title=record[1],
+                            #description=record[2],
+                            #picture_url=record[3],
+                            #user_id=record[4],
+                            #game_id=record[5]
+                       # )
+                        #result.append(post)
                     #if len(result) == 0:
                         #return {"error": "This user has no posts"}
                     return result
