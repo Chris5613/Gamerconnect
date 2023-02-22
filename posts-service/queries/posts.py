@@ -150,6 +150,36 @@ class PostRepository:
             print(e)
             return {"Could not get user's posts"}
 
+    def get_by_game_id(self, games_id: int) -> Union[Error, List[postOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id
+                            , title
+                            , description
+                            , picture_url
+                            , user_id
+                        FROM post
+                        where game_id = %s
+                        """,
+                        [games_id]
+                    )
+                    result = [postOut(
+                            id=record[0],
+                            title=record[1],
+                            description=record[2],
+                            picture_url=record[3],
+                            user_id=record[4],
+                            game_id=games_id
+                        ) for record in db]
+                    return result
+
+        except Exception as e:
+            print(e)
+            return {"Could not get this game's posts"}
+
     def post_into_out(self, id: int, post: postOut):
         old_data = post.dict()
         return postOut(id=id, **old_data)
