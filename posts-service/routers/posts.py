@@ -43,3 +43,10 @@ def update_post(
     repo: PostRepository = Depends(),
 ) -> postOut:
     return repo.update(post_id, post)
+
+@router.get("/post/game/{games_id}", response_model=Union[List[postOut], Error], tags=["Posts"])
+def get_posts_by_game_id(
+    games_id: int,
+    repo: PostRepository = Depends()
+):
+    return repo.get_by_game_id(games_id)
