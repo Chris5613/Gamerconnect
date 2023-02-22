@@ -17,8 +17,8 @@ class postOut(BaseModel):
     title: str
     description: str
     picture_url: Optional[str]
-    user_id: int
-    game_id: int
+    user_id: str
+    game_id: str
 
 
 class PostRepository:
@@ -26,10 +26,14 @@ class PostRepository:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    res = db.execute(
                         """
-                        SELECT id, title, description, picture_url, user_id, game_id
+                        SELECT post.id, post.title, post.description, post.picture_url, users.username, games.title, post.user_id, post.game_id
                         FROM post
+                        LEFT JOIN users
+                        ON post.user_id = users.id
+                        LEFT JOIN games
+                        ON post.game_id = games.id
                         """
                     )
                     result = []
@@ -54,14 +58,13 @@ class PostRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id
-                            , title
-                            , description
-                            , picture_url
-                            , user_id
-                            , game_id
+                        SELECT post.id, post.title, post.description, post.picture_url, users.username, games.title, post.user_id, post.game_id
                         FROM post
-                        WHERE id = %s
+                        LEFT JOIN users
+                        ON post.user_id = users.id
+                        LEFT JOIN games
+                        ON post.game_id = games.id
+                        WHERE post.id = %s
                         """,
                         [post_id],
                     )
