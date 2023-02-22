@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from typing import List, Union
-from queries.posts import postIn, PostRepository, postOut, Error
+from queries.posts import postIn, PostRepository, postOut, Error, postOutUsername
 
 router = APIRouter()
 @router.post("/post",tags=["Posts"])
@@ -17,12 +17,12 @@ def delete_post(
     return repo.delete(post_id)
 
 
-@router.get("/post", response_model=List[postOut],tags=["Posts"])
+@router.get("/post", response_model=List[postOutUsername],tags=["Posts"])
 def get_all_post(
     repo: PostRepository = Depends()):
     return repo.get_all()
 
-@router.get("/post/{post_id}", response_model=Union[postOut, Error],tags=["Posts"])
+@router.get("/post/{post_id}", response_model=Union[postOutUsername, Error],tags=["Posts"])
 def get_post(
     post_id: int,
     repo: PostRepository = Depends()):

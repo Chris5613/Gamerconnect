@@ -20,13 +20,21 @@ class postOut(BaseModel):
     user_id: str
     game_id: str
 
+class postOutUsername(BaseModel):
+    id: int
+    title: str
+    description: str
+    picture_url: Optional[str]
+    username: str
+    game: str
+
 
 class PostRepository:
-    def get_all(self) -> List[postOut]:
+    def get_all(self) -> List[postOutUsername]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    res = db.execute(
+                    result = db.execute(
                         """
                         SELECT post.id, post.title, post.description, post.picture_url, users.username, games.title, post.user_id, post.game_id
                         FROM post
@@ -38,13 +46,13 @@ class PostRepository:
                     )
                     result = []
                     for record in db:
-                        post = postOut(
+                        post = postOutUsername(
                             id=record[0],
                             title=record[1],
                             description=record[2],
                             picture_url=record[3],
-                            user_id=record[4],
-                            game_id=record[5],
+                            username=record[4],
+                            game=record[5],
 
                         )
                         result.append(post)
@@ -52,7 +60,7 @@ class PostRepository:
         except Exception:
             return {"message": "could not get all posts"}
 
-    def get_one(self, post_id: int) -> postOut:
+    def get_one(self, post_id: int) -> postOutUsername:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -185,13 +193,13 @@ class PostRepository:
         return postOut(id=id, **old_data)
 
     def record_in_to_out(self, record):
-        return postOut(
+        return postOutUsername(
             id=record[0],
             title=record[1],
             description=record[2],
             picture_url=record[3],
-            user_id=record[4],
-            game_id=record[5],
+            username=record[4],
+            game=record[5],
             )
 
     def update(self, post_id: int, post: postIn) -> postOut:
