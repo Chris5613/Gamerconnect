@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from queries.pool import pool
+from typing import List
 
 
 class AccountForm(BaseModel):
@@ -57,7 +58,6 @@ class UserRepository:
             print(e)
             return {"message": "could not get user"}
 
-        
     def create(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -123,24 +123,34 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"User has not been updated"}
-        
 
-    def get_all(self) -> list[UserOut]:
+
+    def get_all(self) -> List[UserOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, username, email
+                        SELECT id, username, hashed_password, email
                         FROM users
                         """
                     )
                     result = db.fetchall()
-                    return [UserOut(id=id, username=username, email=email) for id, username, email in result]
+                    return [UserOut(
+                        id=id,
+                        username=username,
+                        hashed_password=hashed_password,
+                        email=email)
+                        for
+                        id,
+                        username,
+                        hashed_password,
+                        email
+                        in result]
         except Exception as e:
             print(e)
             return {"Users not found"}
-    
+
 
     def user_into_out(self,id:int, user:UserOut):
         old_data = user.dict()

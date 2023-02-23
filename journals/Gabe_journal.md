@@ -10,3 +10,13 @@ Today I worked on creating a delete user endpoint. I had to figure out how to de
 
 # 2/18/23
 I started and finished a Get one post endpoint, complete with the appropriate router. Implemented an Error class to provide error messages. Created two helper functions for creating post responses.
+
+# 2/20/23
+Fixed up delete endpoint (proper error message outpoint). Manages to fix my ghi container, in preparation for working on front end. Helped out teammates sort through some errors.
+
+# 2/21/23
+Worked on updating get_all and get_one endpoints to better match our needs, since Dean wanted to get users.name and games.title, based on the user_id and game_id that we had. I created a new schema to match these outputs, and remade out queries, using left joins matching the tables. Started working on Login form FE section.
+
+
+# 2/22/23
+
