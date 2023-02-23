@@ -17,3 +17,15 @@ Today I kept working on the main page , I added two dropdowns for the navbar and
 # 2/19/23
 
 I finished up the main page and added more styling I also added a footer.
+
+# 2/21/23
+
+Worked on some name changes and error fixing
+
+# 2/22/23
+
+Worked on the JWT token and was able to get that up and running but do have some errors that need fixing
+
+# 2/23/23
+
+Today I worked on addressing some of the minor errors that were happening with the JWT token and on the Post list page. We had some background issues that I fixed, and Fixed some of the CSS issues that were happening on the post list page.

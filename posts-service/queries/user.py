@@ -26,6 +26,7 @@ class UserOut(BaseModel):
 
 class UserOutWithPassword(UserOut):
     hashed_password: str
+    
 class Userlogout(BaseModel):
     id: str
     username: str

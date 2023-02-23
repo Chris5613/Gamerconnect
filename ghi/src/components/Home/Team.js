@@ -14,7 +14,7 @@ const Team = () => {
                   alt="Chris"
                 />
               </div>
-              <div>
+              <div className="info">
                 <div className="name">Christian Wu</div>
                 <div className="job">Developer</div>
                 <div className="job">Favorite Game: Valorant</div>
