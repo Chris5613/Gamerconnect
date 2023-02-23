@@ -21,3 +21,8 @@ def delete_user(
     user_id: int,
     repo: UserRepository = Depends(),):
     return repo.delete(user_id)
+
+@router.get("/users/all",tags=["Users"])
+def get_all_users(
+    repo: UserRepository = Depends(),):
+    return repo.get_all()
