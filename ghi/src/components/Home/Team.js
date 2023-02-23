@@ -19,7 +19,7 @@ const Team = () => {
                 <div className="job">Developer</div>
                 <div className="job">Favorite Game: Valorant</div>
               </div>
-              <div class="media-icons">
+              <div className="media-icons">
                 <a href="https://gitlab.com/christianwu56">
                   <img
                     src="https://about.gitlab.com/images/press/press-kit-icon.svg"
@@ -56,7 +56,7 @@ const Team = () => {
                 <div className="job">Developer</div>
                 <div className="job">Favorite Game: COD</div>
               </div>
-              <div class="media-icons">
+              <div className="media-icons">
                 <a href="https://gitlab.com/Garan2">
                   <img
                     src="https://about.gitlab.com/images/press/press-kit-icon.svg"
@@ -93,7 +93,7 @@ const Team = () => {
                 <div className="job">Developer</div>
                 <div className="job">Favorite Game: Overwatch</div>
               </div>
-              <div class="media-icons">
+              <div className="media-icons">
                 <a href="https://gitlab.com/deandavidson">
                   <img
                     src="https://about.gitlab.com/images/press/press-kit-icon.svg"
@@ -130,7 +130,7 @@ const Team = () => {
                 <div className="job">Developer</div>
                 <div className="job">Favorite Game: Valorant</div>
               </div>
-              <div class="media-icons">
+              <div className="media-icons">
                 <a href="https://gitlab.com/frankyscoding">
                   <img
                     src="https://about.gitlab.com/images/press/press-kit-icon.svg"

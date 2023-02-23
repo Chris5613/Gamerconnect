@@ -2,6 +2,14 @@ from pydantic import BaseModel
 from queries.pool import pool
 
 
+class AccountForm(BaseModel):
+    username: str
+    password: str
+
+class DuplicateAccountError(ValueError):
+    pass
+
+
 class UserIn(BaseModel):
     username: str
     password: str
@@ -11,9 +19,12 @@ class UserIn(BaseModel):
 class UserOut(BaseModel):
     id: str
     username: str
+    hashed_password: str
     email: str
 
 
+class UserOutWithPassword(UserOut):
+    hashed_password: str
 class Userlogout(BaseModel):
     id: str
     username: str
@@ -22,25 +33,53 @@ class Userlogout(BaseModel):
 
 
 class UserRepository:
-    def create(self, user: UserIn) -> UserOut:
+    def get(self, username: int) -> UserOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, username, hashed_password , email
+                        FROM users
+                        WHERE username = %s
+                        """,
+                        [username]
+                    )
+                    record = result.fetchone()
+                    user = UserOut(
+                        id=record[0],
+                        username=record[1],
+                        hashed_password=record[2],
+                        email=record[3]
+                        )
+                    return user
+        except Exception as e:
+            print(e)
+            return {"message": "could not get user"}
+
+        
+    def create(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
                         INSERT INTO users
-                            (username,user_password,email)
+                            (
+                                username, hashed_password , email
+                            )
                         VALUES
                             (%s,%s,%s)
                         RETURNING id;
                     """,
                     [
                         user.username,
-                        user.password,
+                        hashed_password,
                         user.email,
                     ]
                 )
                 id = result.fetchone()[0]
-                return self.user_into_out(id,user)
+                old_data = user.dict()
+                return UserOutWithPassword(id=id, **old_data, hashed_password=hashed_password)
 
 
     def delete(self, user_id: int) -> bool:
@@ -69,7 +108,7 @@ class UserRepository:
                         """
                         UPDATE users
                         SET username = %s
-                            , user_password = %s
+                            , hashed_password = %s
                             , email =  %s
                         WHERE id =  %s
                         """,

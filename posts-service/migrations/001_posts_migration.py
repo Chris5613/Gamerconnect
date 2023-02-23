@@ -4,8 +4,8 @@ steps = [
         """
             CREATE TABLE users (
                 id serial primary key NOT NULL,
-                username varchar(50) NOT NULL UNIQUE,
-                user_password varchar(50) NOT NULL,
+                username varchar(250) NOT NULL UNIQUE,
+                hashed_password varchar(250) NOT NULL,
                 email varchar(100) NOT NULL
 
             );
