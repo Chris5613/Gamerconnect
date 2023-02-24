@@ -16,9 +16,11 @@ const Main = () => {
 							We don't touch <span id="grass-text">grass</span>,
 							do you?
 						</p>
-						<button type="" className="homepage-btn">
-							Get Started
-						</button>
+						<a href="http://localhost:3000/signup">
+							<button type="" className="homepage-btn">
+								Get Started
+							</button>
+						</a>
 					</div>
 					<div className="main-img">
 						<img
