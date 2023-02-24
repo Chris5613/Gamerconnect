@@ -19,4 +19,4 @@ Worked on updating get_all and get_one endpoints to better match our needs, sinc
 
 
 # 2/22/23
-
+Continued to work on Login form FE,
