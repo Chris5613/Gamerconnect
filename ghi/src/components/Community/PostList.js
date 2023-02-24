@@ -76,7 +76,7 @@ function PostList() {
               </div>
             </div>
           );
-          else
+          else if (game === "")
             return (
               <div className="page1">
               <div className="card-deck1 hvr-grow">
@@ -101,6 +101,8 @@ function PostList() {
               </div>
             </div>
             )
+            else
+              return null
         })}
       </div>
       </div>
