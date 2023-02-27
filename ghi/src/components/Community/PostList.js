@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./PostList.css";
 
 function PostList() {
@@ -61,6 +62,17 @@ function PostList() {
 					})}
 				</select>
 			</div>
+      <div>
+      <button>
+        <NavLink
+                to="/posts/new"
+                className="nav-link text-dark"
+
+              >
+                Create Post
+          </NavLink>
+      </button>
+      </div>
 			<div className="post-container">
 				<div className="container1">
 					{posts.map((post) => {

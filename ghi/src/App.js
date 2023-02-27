@@ -5,6 +5,7 @@ import PostList from './components/Community/PostList';
 import UserLoginForm from "./components/Login/userLoginForm";
 import { AuthProvider, useToken } from "./components/Login/auth";
 import SignUpForm from './components/SignUp/SignUpForm';
+import PostForm from "./components/Community/PostForm";
 
 function GetToken() {
   useToken();
@@ -18,7 +19,10 @@ function App(props) {
         <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/posts" element={<PostList />} />
+          <Route path="/posts">
+            <Route index element={<PostList />} />
+            <Route path='new' element={<PostForm />} />
+          </Route>
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/userLoginForm" element={<UserLoginForm />}></Route>
           {/* <Route path="/posts" element={<MainPage />} />

@@ -2,9 +2,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 let internalToken = null;
+let user_info = null;
 
 export function getToken() {
-  return internalToken;
+  return [internalToken, user_info];
 }
 
 export async function getTokenInternal() {
@@ -16,7 +17,8 @@ export async function getTokenInternal() {
     if (response.ok) {
       const data = await response.json();
       internalToken = data.access_token;
-      return internalToken;
+      user_info = data.account.id
+      return internalToken, user_info;
     }
   } catch (e) {}
   return false;
