@@ -72,24 +72,24 @@ function PostList() {
           {posts.map((post) => {
             if (post.game === game)
               return (
-                <div className="page1">
-                  <div className="card-deck1 hvr-grow">
-                    <div className="card1" key={post.id}>
+                <div className="page1" key={post.id}>
+                  <div className="card-deck1 hvr-grow" key={post.id}>
+                    <div className="card1">
                       <img
                         className="card-img-top1"
                         src={post.picture_url}
                         alt="Card cap"
                       />
-                      <div className="card-body1">
-                        <h5 className="card-title1">{post.title}</h5>
-                        <p className="card-text1">{post.description}</p>
+                      <div className="card-body1" >
+                        <h5 className="card-title1" >{post.title} </h5>
+                        <p className="card-text1" >{post.description}</p>
                       </div>
                       <div className="card-footer1">
-                        <small className="text-muted1">{post.game}</small>
-                        <small className="text-muted1">@ {post.username}</small>
+                        <small className="text-muted1" >{post.game}</small>
+                        <small className="text-muted1" >@ {post.username}</small>
                       </div>
                       <div>
-                        <button className="detail-button1">Post Detail</button>
+                        <button className="detail-button1" key={post.id}>Post Detail</button>
                       </div>
                     </div>
                   </div>
@@ -97,19 +97,19 @@ function PostList() {
               );
             else if (game === "")
               return (
-                <div className="page1">
-                  <div className="card-deck1 hvr-grow">
+                <div className="page1"key={post.id}>
+                  <div className="card-deck1 hvr-grow" key={post.id}>
                     <div className="card1" key={post.id}>
                       <img
                         className="card-img-top1"
                         src={post.picture_url}
                         alt="Card cap"
                       />
-                      <div className="card-body1">
+                      <div className="card-body1" >
                         <h5 className="card-title1">{post.title}</h5>
                         <p className="card-text1">{post.description}</p>
                       </div>
-                      <div className="card-footer1">
+                      <div className="card-footer1" >
                         <small className="text-muted1">{post.game}</small>
                         <small className="text-muted1">@ {post.username}</small>
                       </div>
