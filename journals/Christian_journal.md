@@ -29,3 +29,7 @@ Worked on the JWT token and was able to get that up and running but do have some
 # 2/23/23
 
 Today I worked on addressing some of the minor errors that were happening with the JWT token and on the Post list page. We had some background issues that I fixed, and Fixed some of the CSS issues that were happening on the post list page.
+
+# 2/25/23
+
+Today since I finished all my task I am reviewing the code and making sure everything is up to par and that there are no errors. I also deleted unnecessary files and folders plus refactoring some of the CSS.

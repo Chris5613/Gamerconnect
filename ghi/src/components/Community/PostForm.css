@@ -1,4 +1,21 @@
-.dropdown-3 {
-  background-color: white;
-  color:black;
+.row {
+  margin-left: 65px;
+}
+
+.card-title {
+  margin-right: 60px;
+}
+
+.create-btn {
+  background-color: rgb(236, 74, 74);
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 850px;
+  width: 10%;
 }

@@ -1,87 +1,89 @@
-* {
-  color: white;
+.dropdown-2,
+.dropdown-3,
+.card1,
+.card-title1,
+.card-text1,
+.card-footer1,
+.text-muted1 {
+  color: black;
 }
 
-
-.dropdown-3 {
+.dropdown-2,
+.dropdown-3,
+.card1 {
   background-color: white;
-  color:black;
+  cursor: pointer;
+}
+
+.card-footer1,
+.text-muted1 {
+  background-color: lightgrey;
+  text-align: center;
+}
+
+.card-img-top1,
+.card1 {
+  height: auto;
+}
+
+.post-container {
+  background-color: black;
+  height: 150vh;
+}
+
+.text-muted1 {
+  margin-right: 5px;
+  font-weight: bold;
 }
 
 .dropdown-2 {
   width: 250px;
-  background-color: white;
-  color:black;
   margin-top: 100px;
-  margin-left: 850px;
-  border: none;
   font-size: 20px;
-  box-shadow: 0px 100px 100px rgba(rgb(102, 38, 117));
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
 }
 
 .container1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
-  color: white;
-  background-color: rgb(0, 0, 0);
-  margin: 50px;
-  min-height: 215vh;
-}
-
-.card-deck1 {
-  color: white;
-  padding-top: 75px;
+  margin: 55px;
+  margin-bottom: 0;
 }
 
 .card1 {
-  color: black;
-  height: auto;
   width: 350px;
-  background-color: white;
-  margin-top: auto;
-}
-
-.card-body1 {
-  color: black;
+  border: 4px solid rgb(255, 255, 255);
 }
 
 .card-title1 {
-  color: black;
   height: 40px;
   font-weight: bolder;
-  text-align: center;
   padding: 5px;
 }
 
 .card-text1 {
-  color: black;
   height: 100px;
-  overflow: hidden;
-  margin-bottom: 0px;
   margin-left: 10px;
 }
 
-.card-footer1 {
-  background-color: lightgrey;
-  color: black;
-  text-align: center;
-}
-
-.text-muted1 {
-  background-color: lightgrey;
-  color: black;
-  margin-right: 5px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .card-img-top1 {
-  height: auto;
   width: 100%;
+}
+
+.detail-button1 {
+  transition-duration: 0.4s;
+  background-color: rgb(236, 74, 74);
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.detail-button1:hover {
+  color: black;
+}
+
+body {
+  background-color: black;
 }
 
 .hvr-grow {
@@ -100,21 +102,4 @@
 .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
-
-.detail-button1 {
-  transition-duration: 0.4s;
-  background-color: rgb(236, 74, 74);
-  margin-top: 10px;
-  padding: 5px;
-  margin-left: 40%;
-  border-radius: 15px;
-}
-
-.detail-button1:hover {
-  color: black;
-}
-
-body {
-  background-color: black;
 }

@@ -1,0 +1,52 @@
+.mb-3 {
+  width: 300px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100vh;
+  margin-right: 150px;
+}
+
+#username,
+#password {
+  font-size: 20px;
+}
+
+.btn-primary {
+  border-radius: 15px;
+  width: 130px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(255, 6, 6);
+}
+
+/* put the login form on top of the video placed in the bottom right corner */
+.login-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}

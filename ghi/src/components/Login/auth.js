@@ -17,7 +17,7 @@ export async function getTokenInternal() {
     if (response.ok) {
       const data = await response.json();
       internalToken = data.access_token;
-      user_info = data.account.id
+      user_info = data.account.id;
       return internalToken, user_info;
     }
   } catch (e) {}
@@ -97,7 +97,7 @@ export function useToken() {
       body: form,
     });
     if (response.ok) {
-      const userInput = await response.json()
+      const userInput = await response.json();
       const token = await getTokenInternal();
       setToken(token);
       return userInput;

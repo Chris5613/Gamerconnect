@@ -7,9 +7,9 @@ const Nav = () => {
     // <NavLink className="nav-links" to="/profile">
     //   Profile
     // </NavLink>,
-    <NavLink className="nav-links" to="/settings">
-      Settings
-    </NavLink>,
+    // <NavLink className="nav-links" to="/settings">
+    //   Settings
+    // </NavLink>,
     <NavLink className="nav-links" to="/logout">
       Logout
     </NavLink>,
@@ -19,9 +19,9 @@ const Nav = () => {
     <NavLink className="nav-links" to="/posts">
       Posts
     </NavLink>,
-    <NavLink className="nav-links" to="/events">
-      Events
-    </NavLink>,
+    // <NavLink className="nav-links" to="/events">
+    //   Events
+    // </NavLink>,
   ];
   return (
     <>
@@ -71,14 +71,12 @@ const Nav = () => {
               </li>
             </div>
 
-            {/* if user is not logged in */}
             <li>
               <NavLink className="nav-links" to="/login">
                 Log in
               </NavLink>
             </li>
 
-            {/* if user is logged in: */}
             <div className="nav-dropdown-section">
               <li>
                 <strong

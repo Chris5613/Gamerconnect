@@ -1,17 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Home/Nav";
 import MainPage from "./components/Home/MainPage";
-import PostList from './components/Community/PostList';
+import PostList from "./components/Community/PostList";
 import UserLoginForm from "./components/Login/userLoginForm";
 import { AuthProvider, useToken } from "./components/Login/auth";
-import SignUpForm from './components/SignUp/SignUpForm';
+import SignUpForm from "./components/SignUp/SignUpForm";
 import PostForm from "./components/Community/PostForm";
+import Footer from "./components/Home/Footer";
 
 function GetToken() {
   useToken();
   return null;
 }
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -21,14 +22,15 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
           <Route path="/posts">
             <Route index element={<PostList />} />
-            <Route path='new' element={<PostForm />} />
+            <Route path="new" element={<PostForm />} />
           </Route>
           <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/userLoginForm" element={<UserLoginForm />}></Route>
+          <Route path="/login" element={<UserLoginForm />} />
           {/* <Route path="/posts" element={<MainPage />} />
-			<Route path="/events" element={<MainPage />} />
-			<Route path="/settings" element={<MainPage />} /> */}
+          <Route path="/events" element={<MainPage />} />
+          <Route path="/settings" element={<MainPage />} /> */}
         </Routes>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );
