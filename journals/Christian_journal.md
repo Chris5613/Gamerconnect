@@ -33,3 +33,11 @@ Today I worked on addressing some of the minor errors that were happening with t
 # 2/25/23
 
 Today since I finished all my task I am reviewing the code and making sure everything is up to par and that there are no errors. I also deleted unnecessary files and folders plus refactoring some of the CSS.
+
+# 2/25/23
+
+Today since I finished all my task I am reviewing the code and making sure everything is up to par and that there are no errors. I also deleted unnecessary files and folders plus refactoring some of the CSS.
+
+# 2/26/23
+
+Today I worked on the logout for the front end and also worked on setting a state for the navbar to change when the user is logged in or not. I also worked on the login page and the sign up page changing some CSS and adding some effects.

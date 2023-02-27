@@ -80,7 +80,7 @@ function SignUpForm() {
         <source src={videoBg} type="video/mp4" />
       </video>
       <form onSubmit={handleSubmit} className="signup-form">
-        <h3>Create a Account</h3>
+        <h3>Create an Account</h3>
         <input
           value={username}
           onChange={(e) => setUsername(e.target.value)}

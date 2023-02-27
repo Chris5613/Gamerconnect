@@ -26,9 +26,6 @@ function App() {
           </Route>
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />
-          {/* <Route path="/posts" element={<MainPage />} />
-          <Route path="/events" element={<MainPage />} />
-          <Route path="/settings" element={<MainPage />} /> */}
         </Routes>
         <Footer />
       </AuthProvider>

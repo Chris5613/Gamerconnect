@@ -43,6 +43,10 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.menu-toggle {
+  margin-right: 400px;
+}
+
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -50,7 +54,6 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   width: 40%;
   justify-self: end;
-  margin-left: 70px;
 }
 
 .nav-links {
@@ -73,6 +76,10 @@ body::-webkit-scrollbar-thumb {
 
 .nav-dropdown-section {
   position: relative;
+}
+
+.profile-pic {
+  margin-left: 40px;
 }
 
 .dropdown-items {

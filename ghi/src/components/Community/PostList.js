@@ -47,7 +47,7 @@ function PostList() {
           value={game}
         >
           <option className="dropdown-3" value="">
-            Choose a game
+            All
           </option>
           {games.map((gamess) => {
             return (
