@@ -142,7 +142,6 @@ function PostForm() {
                         <input
                           onChange={picturechange}
                           placeholder="Picture URL"
-                          required
                           type="url"
                           name="picture_url"
                           id="picture_url"

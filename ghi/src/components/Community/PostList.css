@@ -28,8 +28,9 @@
 
 .post-container {
   background-color: black;
-  height: 150vh;
-  margin-top: 150px;
+  height: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
 }
 
 .text-muted1 {

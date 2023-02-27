@@ -19,7 +19,7 @@ const Nav = () => {
         }
       };
       checkLogin();
-    }, 500);
+    }, 1000);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -36,9 +36,6 @@ const Nav = () => {
   };
 
   const userDropdown = [
-    <NavLink className="nav-links" to="/profile">
-      Profile
-    </NavLink>,
     <NavLink className="nav-links" to="/settings">
       Settings
     </NavLink>,
@@ -51,9 +48,9 @@ const Nav = () => {
     <NavLink className="nav-links" to="/posts">
       Posts
     </NavLink>,
-    // <NavLink className="nav-links" to="/events">
-    //   Events
-    // </NavLink>,
+    <NavLink className="nav-links" to="/events">
+      Events
+    </NavLink>,
   ];
   return (
     <>
@@ -66,14 +63,19 @@ const Nav = () => {
               alt="logo"
             />
           </h1>
-          <div className="menu-toggle">
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
           <ul className="nav-menu">
             {loggedIn ? (
               <>
+                <li>
+                  <NavLink className="nav-links" to="/">
+                    Home
+                  </NavLink>
+                </li>
                 <div className="nav-dropdown-section">
                   <li>
                     <p
