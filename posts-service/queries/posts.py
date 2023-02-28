@@ -112,22 +112,24 @@ class PostRepository:
             print(e)
             return "Could not create post"
 
-
-    def delete(self,post_id: int) -> bool:
+    def delete(self, post_id:int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    db.execute(
+                    result = db.execute(
                         """
-                        DELETE FROM post
-                        WHERE id = %s
+                            DELETE FROM post
+                            WHERE id = %s
+                            RETURNING id
                         """,
-                        [post_id],
+                        [post_id]
                     )
-                    return {"deleted":True}
+                    id = result.fetchone()[0]
+                    return {f"Post {id} deleted": True}
         except Exception as e:
             print(e)
-            return {"Could not be deleted"}
+            return {"Post deleted": False}
+
 
     def get_byuserid(self, users_id: int) -> Union[Error, List[postOut]]:
         try:
