@@ -1,13 +1,21 @@
 .mb-3 {
-  width: 300px;
+  width: 260px;
+  margin-right: 16px;
 }
 
 .login-container {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 55%;
+  height: 600px;
   display: flex;
+  flex-direction: column;
   justify-content: end;
-  align-items: center;
-  height: 100vh;
-  margin-right: 150px;
+  align-items: end;
+  border: 1px solid white;
 }
 
 #username,
@@ -24,29 +32,29 @@
   background-color: rgb(255, 6, 6);
 }
 
-/* put the login form on top of the video placed in the bottom right corner */
-.login-form {
+.logo {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
-  margin: auto;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  right: 10px;
+  height: 100%;
+  width: 600px;
+}
+
+.login-btn {
+  height: 12%;
+  width: 95%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(14, 161, 76);
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
   color: white;
 }
 
-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+.login-form {
+  margin-right: 70px;
+  margin-bottom: 130px;
 }

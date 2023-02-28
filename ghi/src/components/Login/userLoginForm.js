@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useToken } from "./auth";
 import { useNavigate } from "react-router-dom";
-import videoBg from "./video.mp4";
 import "./Login.css";
 
 function BootstrapInput(props) {
@@ -41,36 +40,46 @@ function UserLoginForm() {
     }
   }
   return (
-    <div className="login-container">
-      <video autoPlay loop muted className="video">
-        <source src={videoBg} type="video/mp4" />
-      </video>
-      <form onSubmit={handleSubmit} className="login-form">
-        <h1>Login</h1>
-        <BootstrapInput
-          id="username"
-          placeholder="Username"
-          labelText="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          type="username"
+    <>
+      <div className="login-container">
+        <img
+          src="https://i.gyazo.com/67b8b582ea05ff31ad8c78ba42055df2.png"
+          alt="logo"
+          className="logo"
         />
-        <BootstrapInput
-          id="password"
-          placeholder="Password"
-          labelText="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          type="password"
-        />
-        <button
-          disabled={username.length === 0 && password.length === 0}
-          className="btn btn-primary"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+        <form onSubmit={handleSubmit} className="login-form">
+          <h3 id="signup-title">
+            <strong>Member Login</strong>
+          </h3>
+          <BootstrapInput
+            id="username"
+            placeholder="Username"
+            labelText="Username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            type="username"
+          />
+          <BootstrapInput
+            id="password"
+            placeholder="Password"
+            labelText="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            type="password"
+          />
+          <button
+            disabled={username.length === 0 && password.length === 0}
+            className="btn login-btn"
+          >
+            Submit
+          </button>
+          <div className="login-link">
+            <a href="/signup">Don't have a account? Sign up</a>
+          </div>
+        </form>
+      </div>
+      <div className="ghost"></div>
+    </>
   );
 }
 export default UserLoginForm;
