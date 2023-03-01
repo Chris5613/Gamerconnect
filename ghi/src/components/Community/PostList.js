@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuthContext } from '../Login/auth';
 import './PostList.css';
+import { useNavigate } from 'react-router-dom';
 
 function PostList() {
 	const [posts, setPosts] = useState([]);
 	const [games, setGames] = useState([]);
+	const { token } = useAuthContext()
+	const navigate = useNavigate();
+
 
 	const fetchData = async () => {
 		const url = 'http://localhost:8001/post';
@@ -30,10 +35,15 @@ function PostList() {
 		}
 	};
 
+
 	useEffect(() => {
 		fetchData();
 		getGames();
-	}, []);
+		if (token === false) {
+      navigate("/login");
+    }
+
+	}, [token, navigate]);
 
 	return (
 		<div>
@@ -121,7 +131,7 @@ function PostList() {
 										className="card-deck1 hvr-grow"
 										key={post.id}
 									>
-										<div className="card1" key={post.id}>
+										<div className="card1" >
 											<img
 												className="card-img-top1"
 												src={post.picture_url}

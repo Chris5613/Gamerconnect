@@ -2,26 +2,25 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 let internalToken = null;
-let user_info = null;
+
 
 export function getToken() {
-	return [internalToken, user_info];
+  return [internalToken];
 }
 
 export async function getTokenInternal() {
-	const url = 'http://localhost:8001/token';
-	try {
-		const response = await fetch(url, {
-			credentials: 'include',
-		});
-		if (response.ok) {
-			const data = await response.json();
-			internalToken = data.access_token;
-			user_info = data.account.id;
-			return internalToken, user_info;
-		}
-	} catch (e) {}
-	return false;
+  const url = "http://localhost:8001/token";
+  try {
+    const response = await fetch(url, {
+      credentials: "include",
+    });
+    if (response.ok) {
+      const data = await response.json();
+      internalToken = data.access_token;
+      return internalToken;
+    }
+  } catch (e) {}
+  return false;
 }
 
 function handleErrorMessage(error) {

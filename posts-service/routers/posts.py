@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from typing import List, Union
+from auth import authenticator
 from queries.posts import postIn, PostRepository, postOut, Error, postOutUsername
 
 router = APIRouter()
@@ -21,6 +22,7 @@ def delete_post(
 def get_all_post(
     repo: PostRepository = Depends()):
     return repo.get_all()
+
 
 @router.get("/post/{post_id}", response_model=Union[postOutUsername, Error],tags=["Posts"])
 def get_post(

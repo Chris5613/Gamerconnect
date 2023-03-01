@@ -9,6 +9,8 @@ function PostForm() {
 	const [cur_user, setUser] = useState('');
 	const navigate = useNavigate();
 
+
+
 	const gamesData = async () => {
 		const url = 'http://localhost:8001/games/';
 		const response = await fetch(url);
@@ -36,7 +38,10 @@ function PostForm() {
 	useEffect(() => {
 		gamesData();
 		userData();
-	});
+		if (token === false) {
+      navigate("/login");
+    }
+	}, [ token, navigate ]);
 
 	const [title, setTitle] = useState('');
 	const titlechange = (event) => {
