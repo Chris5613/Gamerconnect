@@ -54,7 +54,8 @@ async def create_account(
 def update_user(
     user_id: int,
     user: UserIn,
-    repo: UserRepository = Depends(),) -> UserOut:
+    repo: UserRepository = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),) -> UserOut:
     return repo.update(user_id,user)
 
 @router.delete("/delete/{user_id}",tags=["Users"])
@@ -66,12 +67,14 @@ def delete_user(
 @router.get("/get/{username}",tags=["Users"])
 def get_user(
     username: str,
-    repo: UserRepository = Depends(),) -> UserOut:
+    repo: UserRepository = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),) -> UserOut:
     return repo.get(username)
 
 @router.get("/users/all",tags=["Users"])
 def get_all_users(
-    repo: UserRepository = Depends(),):
+    repo: UserRepository = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),):
     return repo.get_all()
 
 
