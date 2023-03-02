@@ -7,6 +7,7 @@ class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class DuplicateAccountError(ValueError):
     pass
 
@@ -26,6 +27,7 @@ class UserOut(BaseModel):
 
 class UserOutWithPassword(UserOut):
     hashed_password: str
+
 
 class Userlogout(BaseModel):
     id: str
@@ -59,7 +61,10 @@ class UserRepository:
             print(e)
             return {"message": "could not get user"}
 
-    def create(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:
+    def create(
+            self,
+            user: UserIn,
+            hashed_password: str) -> UserOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -80,8 +85,11 @@ class UserRepository:
                 )
                 id = result.fetchone()[0]
                 old_data = user.dict()
-                return UserOutWithPassword(id=id, **old_data, hashed_password=hashed_password)
-
+                return UserOutWithPassword(
+                    id=id,
+                    **old_data,
+                    hashed_password=hashed_password
+                    )
 
     def delete(self, user_id: int) -> bool:
         try:
@@ -101,7 +109,7 @@ class UserRepository:
             print(e)
             return {"User deleted": False}
 
-    def update(self, user_id:int, user: UserIn) -> UserOut:
+    def update(self, user_id: int, user: UserIn) -> UserOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -120,11 +128,10 @@ class UserRepository:
                             user_id
                         ]
                     )
-                    return self.user_into_out(user_id,user)
+                    return self.user_into_out(user_id, user)
         except Exception as e:
             print(e)
             return {"User has not been updated"}
-
 
     def get_all(self) -> List[UserOut]:
         try:
@@ -152,7 +159,6 @@ class UserRepository:
             print(e)
             return {"Users not found"}
 
-
-    def user_into_out(self,id:int, user:UserOut):
+    def user_into_out(self, id: int, user: UserOut):
         old_data = user.dict()
         return UserOut(id=id, **old_data)

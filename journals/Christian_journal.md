@@ -41,3 +41,11 @@ Today since I finished all my task I am reviewing the code and making sure every
 # 2/26/23
 
 Today I worked on the logout for the front end and also worked on setting a state for the navbar to change when the user is logged in or not. I also worked on the login page and the sign up page changing some CSS and adding some effects.
+
+# 2/27/23
+
+I redesigned the logout and login page and added some CSS to it.
+
+# 2/28/23 #3/1/23
+
+Worked on fixing some bugs and css erorrs also worked on CI/CD making sure the test passed the lint

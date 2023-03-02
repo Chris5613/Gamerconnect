@@ -2,12 +2,15 @@ from pydantic import BaseModel
 from typing import List
 from queries.pool import pool
 
+
 class Error(BaseModel):
     message: str
+
 
 class GamesOut(BaseModel):
     id: int
     title: str
+
 
 class GamesRepository:
     def get_games(self) -> List[GamesOut]:
@@ -22,10 +25,7 @@ class GamesRepository:
                     )
                     result = []
                     for record in db:
-                        game = GamesOut(
-                            id = record[0],
-                            title = record[1]
-                        )
+                        game = GamesOut(id=record[0], title=record[1])
                         result.append(game)
                     return result
         except Exception:

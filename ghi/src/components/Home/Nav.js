@@ -71,11 +71,6 @@ const Nav = () => {
           <ul className="nav-menu">
             {loggedIn ? (
               <>
-                <li>
-                  <NavLink className="nav-links" to="/">
-                    Home
-                  </NavLink>
-                </li>
                 <div className="nav-dropdown-section">
                   <li>
                     <p

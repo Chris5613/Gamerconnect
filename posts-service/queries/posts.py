@@ -5,12 +5,15 @@ from queries.pool import pool
 
 class Error(BaseModel):
     message: str
+
+
 class postIn(BaseModel):
     title: str
     description: str
     picture_url: Optional[str]
     user_id: int
     game_id: int
+
 
 class postOut(BaseModel):
     id: int
@@ -19,6 +22,7 @@ class postOut(BaseModel):
     picture_url: Optional[str]
     user_id: str
     game_id: str
+
 
 class postOutUsername(BaseModel):
     id: int
@@ -36,7 +40,10 @@ class PostRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT post.id, post.title, post.description, post.picture_url, users.username, games.title, post.user_id, post.game_id
+                        SELECT post.id,
+                        post.title, post.description,
+                        post.picture_url, users.username,
+                        games.title, post.user_id, post.game_id
                         FROM post
                         LEFT JOIN users
                         ON post.user_id = users.id
@@ -53,7 +60,6 @@ class PostRepository:
                             picture_url=record[3],
                             username=record[4],
                             game=record[5],
-
                         )
                         result.append(post)
                     return result
@@ -66,7 +72,10 @@ class PostRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT post.id, post.title, post.description, post.picture_url, users.username, games.title, post.user_id, post.game_id
+                        SELECT post.id, post.title,
+                        post.description, post.picture_url,
+                        users.username, games.title, post.user_id,
+                        post.game_id
                         FROM post
                         LEFT JOIN users
                         ON post.user_id = users.id
@@ -78,12 +87,11 @@ class PostRepository:
                     )
                     record = result.fetchone()
                     if record is None:
-                        return {"message": "There is no post with that post_id"}
+                        return {"message": "Post id not found"}
                     return self.record_in_to_out(record)
         except Exception as e:
             print(e)
             return {"message": "could not get post"}
-
 
     def create(self, post: postIn) -> postOut:
         try:
@@ -112,7 +120,7 @@ class PostRepository:
             print(e)
             return "Could not create post"
 
-    def delete(self, post_id:int) -> bool:
+    def delete(self, post_id: int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -129,7 +137,6 @@ class PostRepository:
         except Exception as e:
             print(e)
             return {"Post deleted": False}
-
 
     def get_byuserid(self, users_id: int) -> Union[Error, List[postOut]]:
         try:
@@ -155,7 +162,6 @@ class PostRepository:
                             game_id=record[5]
                         ) for record in db if record[4] == users_id]
                     return result
-
         except Exception as e:
             print(e)
             return {"Could not get user's posts"}
@@ -185,7 +191,6 @@ class PostRepository:
                             game_id=games_id
                         ) for record in db]
                     return result
-
         except Exception as e:
             print(e)
             return {"Could not get this game's posts"}
@@ -225,7 +230,6 @@ class PostRepository:
                             post.user_id,
                             post.game_id,
                             post_id
-
                         ]
                     )
                     old_data = post.dict()

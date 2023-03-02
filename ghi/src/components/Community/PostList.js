@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuthContext } from '../Login/auth';
-import './PostList.css';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../Login/auth";
+import "./PostList.css";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function PostList() {
-	const [posts, setPosts] = useState([]);
-	const [games, setGames] = useState([]);
-	const { token } = useAuthContext();
-	const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [games, setGames] = useState([]);
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const url = "http://localhost:8001/posts";
     const fetchConfig = {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -27,28 +27,28 @@ function PostList() {
     }
   };
 
-	const [game, setGame] = useState('');
-	const gamechange = (event) => {
-		const value = event.target.value;
-		setGame(value);
-	};
+  const [game, setGame] = useState("");
+  const gamechange = (event) => {
+    const value = event.target.value;
+    setGame(value);
+  };
 
-	const getGames = async () => {
-		const url = 'http://localhost:8001/games';
-		const response = await fetch(url);
-		if (response.ok) {
-			const game = await response.json();
-			setGames(game);
-		}
-	};
+  const getGames = async () => {
+    const url = "http://localhost:8001/games";
+    const response = await fetch(url);
+    if (response.ok) {
+      const game = await response.json();
+      setGames(game);
+    }
+  };
 
-	useEffect(() => {
-		fetchData();
-		getGames();
-		if (token === false) {
-			navigate('/login');
-		}
-	}, [token, navigate]);
+  useEffect(() => {
+    fetchData();
+    getGames();
+    if (token === false) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   return (
     <div>

@@ -27,7 +27,7 @@ function App() {
           </Route>
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />
-          <Route path="/posts/:id" element={<PostDetails />}></Route>
+          <Route path="/posts/:id" element={<PostDetails />} />
         </Routes>
         <Footer />
       </AuthProvider>
