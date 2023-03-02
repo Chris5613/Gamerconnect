@@ -21,13 +21,11 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/posts">
-            <Route index element={<PostList />} />
-            <Route path="new" element={<PostForm />} />
-          </Route>
+          <Route path="new" element={<PostForm />} />
+          <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />
-          <Route path="/posts/:id" element={<PostDetails />} />
+          <Route path="/posts" element={<PostList />} />
         </Routes>
         <Footer />
       </AuthProvider>

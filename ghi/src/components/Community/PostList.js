@@ -42,8 +42,9 @@ function PostList() {
     }
   };
 
+  fetchData();
+
   useEffect(() => {
-    fetchData();
     getGames();
     if (token === false) {
       navigate("/login");

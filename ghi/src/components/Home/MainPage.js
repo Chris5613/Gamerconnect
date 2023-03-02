@@ -1,5 +1,6 @@
 import AboutUs from "./Team";
 import "./homepage.css";
+import Button from "./Button";
 
 const Main = () => {
   return (
@@ -15,9 +16,7 @@ const Main = () => {
               We don't touch <span id="grass-text">grass</span>, do you?
             </p>
             <a href="http://localhost:3000/signup">
-              <button type="" className="homepage-btn">
-                Get Started
-              </button>
+              <Button />
             </a>
           </div>
           <div className="main-img">

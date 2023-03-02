@@ -19,7 +19,7 @@ class UserIn(BaseModel):
 
 
 class UserOut(BaseModel):
-    id: str
+    id: int
     username: str
     hashed_password: str
     email: str
@@ -30,7 +30,7 @@ class UserOutWithPassword(UserOut):
 
 
 class Userlogout(BaseModel):
-    id: str
+    id: int
     username: str
     password: str
     token: str

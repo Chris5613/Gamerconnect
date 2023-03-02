@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useToken } from "../Login/auth";
 
 const Nav = () => {
   const [UserMenu, setUserMenu] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const { token } = useToken();
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const checkLogin = async () => {
-        const url = "http://localhost:8001/token";
-        const response = await fetch(url, {
-          method: "GET",
-          credentials: "include",
-        });
-        let jsonResponse = await response.json();
-        if (response.ok && jsonResponse !== null) {
-          setLoggedIn(true);
-        }
-      };
-      checkLogin();
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
+    if (token) {
+      setLoggedIn(true);
+    }
+  }, [token]);
 
   const logout = async () => {
     const url = "http://localhost:8001/token";
@@ -71,6 +61,11 @@ const Nav = () => {
           <ul className="nav-menu">
             {loggedIn ? (
               <>
+                <li>
+                  <NavLink className="nav-links" to="/">
+                    Home
+                  </NavLink>
+                </li>
                 <div className="nav-dropdown-section">
                   <li>
                     <p
