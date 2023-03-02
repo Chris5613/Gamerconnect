@@ -7,17 +7,16 @@ client = TestClient(app)
 
 class CreatePostQueries:
     def create(self, post):
-        result = { 
-            "id":1 ,            
+        result = {
+            "id":1 ,
             "title": "string",
             "description": "string",
             "picture_url": "string",
             "user_id": 1,
-            "game_id": 1              
+            "game_id": 1
         }
         result.update(post)
         return result
-        
 
 def test_create_post():
 
@@ -31,7 +30,7 @@ def test_create_post():
         "game_id": 1
     }
 
-    expected = {     
+    expected = {
         "id": 1,
         "title": "string",
         "description": "string",
@@ -41,7 +40,7 @@ def test_create_post():
     }
 
     response = client.post("/post", json=json)
-    
+
     app.dependency_overrides = {}
 
     assert response.status_code == 200

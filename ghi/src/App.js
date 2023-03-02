@@ -7,6 +7,7 @@ import { AuthProvider, useToken } from "./components/Login/auth";
 import SignUpForm from "./components/SignUp/SignUpForm";
 import PostForm from "./components/Community/PostForm";
 import Footer from "./components/Home/Footer";
+import PostDetails from "./components/Community/postsDetail";
 
 function GetToken() {
   useToken();
@@ -26,6 +27,7 @@ function App() {
           </Route>
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />
+          <Route path="/posts/:id" element={<PostDetails />}></Route>
         </Routes>
         <Footer />
       </AuthProvider>
