@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../Login/auth";
 import "./PostList.css";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function PostList() {
@@ -10,7 +9,13 @@ function PostList() {
   const [games, setGames] = useState([]);
   const { token } = useAuthContext();
 
-  const fetchData = async () => {
+  const [game, setGame] = useState("");
+  const gamechange = (event) => {
+    const value = event.target.value;
+    setGame(value);
+  };
+
+  const fetchData = async (token) => {
     const url = "http://localhost:8001/posts";
     const fetchConfig = {
       method: "GET",
@@ -26,12 +31,6 @@ function PostList() {
     }
   };
 
-  const [game, setGame] = useState("");
-  const gamechange = (event) => {
-    const value = event.target.value;
-    setGame(value);
-  };
-
   const getGames = async () => {
     const url = "http://localhost:8001/games";
     const response = await fetch(url);
@@ -41,11 +40,12 @@ function PostList() {
     }
   };
 
-  fetchData();
-
   useEffect(() => {
-    getGames();
-  }, []);
+    if (token) {
+      fetchData(token);
+      getGames();
+    }
+  }, [token]);
 
   return (
     <div>
