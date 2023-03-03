@@ -13,15 +13,18 @@ function GetToken() {
   useToken();
   return null;
 }
+
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "/gamerconnect");
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AuthProvider>
         <GetToken />
         <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="new" element={<PostForm />} />
+          <Route path="/new" element={<PostForm />} />
           <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />

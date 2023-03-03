@@ -75,7 +75,7 @@ function PostList() {
         </select>
       </div>
       <div>
-        <NavLink to="/posts/new" className="nav-link text-dark create-btn">
+        <NavLink to="/new" className="nav-link text-dark create-btn">
           Create Post
         </NavLink>
       </div>
