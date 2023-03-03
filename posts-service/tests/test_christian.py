@@ -55,6 +55,7 @@ def test_create_post():
         "game_id": 1
     }
     response = client.post("/post", json=json)
+
     app.dependency_overrides = {}
     assert response.status_code == 200
     assert response.json() == expected

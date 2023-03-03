@@ -7,6 +7,10 @@ class Error(BaseModel):
     message: str
 
 
+class GamesIn(BaseModel):
+    title: str
+
+
 class GamesOut(BaseModel):
     id: int
     title: str
@@ -30,3 +34,25 @@ class GamesRepository:
                     return result
         except Exception:
             return {"message": "Could not retrieve games"}
+
+    def create(self, game: GamesIn) -> GamesOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        INSERT INTO games
+                            (title)
+                        VALUES
+                            (%s)
+                        RETURNING id;
+                        """,
+                        [
+                            game.title,
+                        ]
+                    )
+                    id = result.fetchone()[0]
+                    return GamesOut(id=id, title=game.title)
+        except Exception as e:
+            print(e)
+            return "Could not create game"

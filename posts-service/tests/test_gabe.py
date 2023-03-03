@@ -1,27 +1,48 @@
 from fastapi.testclient import TestClient
 from main import app
-from queries.posts import PostRepository
+from queries.posts import PostRepository, postOutUsername
+from auth import authenticator
 
 client = TestClient(app)
 
 
 class GetOnePostQueries:
-    def get_one(self, id: 1):
-        return {}
+    def get_one(self, id):
+        return postOutUsername(
+            id="1",
+            title="title",
+            description="description",
+            picture_url="string",
+            username="Gabe",
+            game="Fortnite",
+        )
+
+
+class FakeAuthenticator:
+    def get_current_account_data(self):
+        return {
+            "id": 1,
+            "username": "Gabe",
+            "hashed_password": "$2b$12$iAJWXlKcU7",
+            "email": "string"
+            }
 
 
 def test_get_one_post():
     expected = {
-        "id": 0,
-        "title": "string",
-        "description": "string",
+        "id": 1,
+        "title": "title",
+        "description": "description",
         "picture_url": "string",
-        "username": "string",
-        "game": "string"
-        }
+        "username": "Gabe",
+        "game": "Fortnite",
+    }
+
     app.dependency_overrides[PostRepository] = GetOnePostQueries
-    response = client.get("/post/1")
-    app.dependency_overrides = {}
+    app.dependency_overrides[authenticator.get_current_account_data] = (
+        FakeAuthenticator
+    )
+    response = client.get("/getpost/1")
     assert response.status_code == 200
     assert response.json() == expected
 

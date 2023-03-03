@@ -9,7 +9,6 @@ function PostList() {
   const [posts, setPosts] = useState([]);
   const [games, setGames] = useState([]);
   const { token } = useAuthContext();
-  const navigate = useNavigate();
 
   const fetchData = async () => {
     const url = "http://localhost:8001/posts";
@@ -46,10 +45,7 @@ function PostList() {
 
   useEffect(() => {
     getGames();
-    if (token === false) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
+  }, []);
 
   return (
     <div>
