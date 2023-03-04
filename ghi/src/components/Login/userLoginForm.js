@@ -34,9 +34,9 @@ function UserLoginForm() {
     setUsername("");
     setPassword("");
     if (userInput["access_token"]) {
-      navigation("/posts");
+      navigation("posts");
     } else {
-      navigation("/login");
+      navigation("login");
     }
   }
   return (
@@ -74,7 +74,7 @@ function UserLoginForm() {
             Submit
           </button>
           <div className="login-link">
-            <a href="/signup">Don't have a account? Sign up</a>
+            <a href="signup">Don't have a account? Sign up</a>
           </div>
         </form>
       </div>
