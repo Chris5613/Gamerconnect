@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import os
+# import os
 from routers import posts, user, games
 from auth import authenticator
 
