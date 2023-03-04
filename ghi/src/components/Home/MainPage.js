@@ -15,7 +15,7 @@ const Main = () => {
             <p className="texts">
               We don't touch <span id="grass-text">grass</span>, do you?
             </p>
-            <a href="http://localhost:3000/signup">
+            <a href={`${process.env.REACT_APP_POSTS_API_HOST}/signup`}>
               <Button />
             </a>
           </div>
