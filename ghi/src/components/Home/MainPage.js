@@ -1,6 +1,7 @@
 import AboutUs from "./Team";
 import "./homepage.css";
 import Button from "./Button";
+import { NavLink } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -15,9 +16,9 @@ const Main = () => {
             <p className="texts">
               We don't touch <span id="grass-text">grass</span>, do you?
             </p>
-            <a href={`${process.env.REACT_APP_POSTS_API_HOST}/signup`}>
+            <NavLink to="signup">
               <Button />
-            </a>
+            </NavLink>
           </div>
           <div className="main-img">
             <img
