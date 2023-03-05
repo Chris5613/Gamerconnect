@@ -28,7 +28,7 @@ function PostDetails() {
       }
     };
     if (token === false) {
-      navigate("login");
+      navigate("/login");
     }
     fetchpost();
   }, [token, navigate, params.id]);

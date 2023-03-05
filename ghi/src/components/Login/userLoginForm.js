@@ -34,9 +34,9 @@ function UserLoginForm() {
     setUsername("");
     setPassword("");
     if (userInput["access_token"]) {
-      navigation("posts");
+      navigation("/posts");
     } else {
-      navigation("login");
+      navigation("/login");
     }
   }
   return (

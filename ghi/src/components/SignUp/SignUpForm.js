@@ -11,6 +11,8 @@ function SignUpForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
+
+
   const [password, setPassword, passwordError] = usePasswordValidator({
     min: 8,
     max: 15,
@@ -63,11 +65,11 @@ function SignUpForm() {
     try {
       const response = await fetch(locationUrl, fetchConfig);
       if (response.ok) {
-        navigate("login");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
-      navigate("login");
+      navigate("/login");
     }
   };
 

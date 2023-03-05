@@ -37,7 +37,7 @@ function PostForm() {
     gamesData();
     userData();
     if (token === false) {
-      navigate("login");
+      navigate("/login");
     }
   }, [token, navigate]);
 
@@ -93,7 +93,7 @@ function PostForm() {
     if (response.ok) {
       const newPost = await response.json();
       console.log(newPost);
-      navigate("posts");
+      navigate(`/posts/${newPost.id}`);
 
       setTitle("");
       setDescription("");
