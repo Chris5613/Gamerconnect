@@ -105,6 +105,6 @@ async def get_token(
     if account and authenticator.cookie_name in request.cookies:
         return {
             "access_token": request.cookies[authenticator.cookie_name],
-            "type": "Bearer",
+            "token_type": "Bearer",
             "account": account,
         }
