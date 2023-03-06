@@ -32,6 +32,13 @@ class postOutUsername(BaseModel):
     username: str
     game: str
 
+class commentIn(BaseModel):
+    comments: str
+
+class commentOut(BaseModel):
+    id: int
+    comments: str
+
 
 class PostRepository:
     def get_all(self) -> List[postOutUsername]:
@@ -236,3 +243,25 @@ class PostRepository:
                     return postOut(id=post_id, **old_data)
         except Exception:
             return {"message": "could not update post"}
+    def create_comment(self, post: commentIn) -> commentOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        INSERT INTO comments
+                            (comments)
+                        Values
+                            (%s)
+                        RETURNING id;
+                        """,
+                        [
+                            post.comments
+                        ]
+                    )
+                    id = result.fetchone()[0]
+                    old_data = post.dict()
+                    return commentOut(id=id, **old_data)
+        except Exception as e:
+            print(e)
+            return "Could not create comment"
