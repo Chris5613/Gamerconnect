@@ -12,7 +12,7 @@ def create_game(
 
 
 @router.get("/games",
-            response_model=Union[List[GamesOut], Error],
+            response_model=List[GamesOut],
             tags=["Games"])
 def get_all_games(
     repo: GamesRepository = Depends()

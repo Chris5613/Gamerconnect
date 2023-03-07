@@ -51,6 +51,7 @@ steps = [
         """
         CREATE TABLE comments (
             id SERIAL PRIMARY KEY NOT NULL,
+            post_id INTEGER NOT NULL REFERENCES post(id),
             comments varchar(200) NOT NULL
         );
         """,
