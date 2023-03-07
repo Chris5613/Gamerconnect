@@ -46,7 +46,6 @@ function SignUpForm() {
 		event.preventDefault();
 
 		const data = {};
-		console.log(data);
 
 		data.username = username;
 		data.email = email;
