@@ -5,7 +5,7 @@ from queries.posts import (
     PostRepository,
     postOut,
     Error,
-    postOutUsername, commentOut, commentIn
+    postOutUsername
     )
 from auth import authenticator
 
@@ -24,16 +24,6 @@ def create_post(
     else:
         return HTTPException(status_code=401, detail="Invalid Token")
 
-@router.post("/postcomment", tags=["Posts"])
-def create_comment(
-    post: commentIn,
-        repo: PostRepository = Depends(),
-        account_data:
-        dict = Depends(authenticator.get_current_account_data),):
-    if account_data:
-        return repo.create(post)
-    else:
-        return HTTPException(status_code=401, detail="Invalid Token")
 
 @router.delete("/post/{post_id}", tags=["Posts"])
 def delete_post(
