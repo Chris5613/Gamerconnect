@@ -113,7 +113,7 @@ function PostForm() {
 
                 <div className="row">
                   <div className="col">
-                    <div className="mb-3">
+                    <div className="create-form">
                       <div className="form-floating mb-3">
                         <input
                           onChange={titlechange}

@@ -5,12 +5,14 @@ from routers import posts, user, games
 from auth import authenticator
 
 
+origins = [
+    os.environ.get("CORS_HOST"),
+    "http://localhost:3000",
+]
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        os.environ.get("CORS_HOST", "http://localhost:3000")
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
