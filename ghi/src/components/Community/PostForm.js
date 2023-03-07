@@ -92,7 +92,6 @@ function PostForm() {
     console.log(response);
     if (response.ok) {
       const newPost = await response.json();
-      console.log(newPost);
       navigate(`/posts/${newPost.id}`);
 
       setTitle("");
