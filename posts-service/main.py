@@ -5,12 +5,7 @@ from routers import posts, user, games
 from auth import authenticator
 
 
-origins = [
-    "http://localhost:3000",
-    os.environ.get("CORS_HOST", None),
-    "https://posts-service.nov-pt-3.mod3projects.com",
-    "https://gamerconnect.gitlab.io/module3-project-gamma",
-]
+origins = ["*"]
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
