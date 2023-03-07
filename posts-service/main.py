@@ -6,8 +6,8 @@ from auth import authenticator
 
 
 origins = [
-    os.environ.get("CORS_HOST"),
     "http://localhost:3000",
+    os.environ.get("CORS_HOST", None),
 ]
 app = FastAPI()
 app.add_middleware(
