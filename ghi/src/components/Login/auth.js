@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 let internalToken = null;
 
 export function getToken() {
-	return [internalToken];
+	return internalToken;
 }
 
 export async function getTokenInternal() {

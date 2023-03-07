@@ -16,7 +16,7 @@ function GetToken() {
 
 function App() {
   const domain = /https:\/\/[^/]+/;
-  const basename = process.env.PUBLIC_URL.replace(domain, "/module3-project-gamma");
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
   return (
     <BrowserRouter basename={basename}>
       <AuthProvider>
