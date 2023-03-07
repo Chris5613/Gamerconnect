@@ -24,7 +24,7 @@ def create_comment(
         return HTTPException(status_code=401, detail="Invalid Token")
 
 
-@router.get("/comment", response_model=List[commentOut], tags=["Comments"])
+@router.get("/getcomments", response_model=List[commentOut], tags=["Comments"])
 def get_all_comments(
     repo: CommentsRepository = Depends(),
     account_data:

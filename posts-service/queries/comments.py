@@ -46,7 +46,7 @@ class CommentsRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, post_id, comments,
+                        SELECT id, post_id, comments
                         FROM comments;
                         """
                     )
@@ -59,8 +59,9 @@ class CommentsRepository:
                         )
                         result.append(comment)
                     return result
-        except Exception:
-            return {"message": "could not get all posts"}
+        except Exception as e:
+            print(e)
+            return {"message": "could not get all comments"}
 
 
     # def get_one(self, post_id: int) -> commentOutpost:
