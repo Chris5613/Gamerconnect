@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useAuthContext } from "../Login/auth";
 import "./PostList.css";
-import { Link } from "react-router-dom";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -77,7 +76,7 @@ function PostList() {
         </select>
       </div>
       <div>
-        <NavLink to="new" className="nav-link text-dark create-btn">
+        <NavLink to="/new" className="text-dark create-btn">
           Create Post
         </NavLink>
       </div>

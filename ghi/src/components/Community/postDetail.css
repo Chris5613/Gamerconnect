@@ -1,7 +1,4 @@
-
-
-
-.card {
+.card3 {
   background: #fff;
   transition: 0.5s;
   border: 0;
@@ -11,13 +8,13 @@
   width: 100%;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
-.card .body {
+.card3 .body {
   color: #444;
   padding: 20px;
   font-weight: 400;
 }
 /* Comments card header */
-.card .header {
+.card3 .header {
   color: #444;
   padding: 20px;
   position: relative;
@@ -49,7 +46,6 @@
   max-width: 100%;
   filter: none;
   -webkit-filter: grayscale(0);
-  -webkit-transform: scale(1.01);
 }
 
 .single_post .img-post:hover img {
@@ -79,7 +75,6 @@
   list-style: none;
   padding: 0;
   display: inline-block;
-  float: right;
   margin: 0;
   line-height: 35px;
 }
@@ -154,4 +149,12 @@
 
 .post-text {
   color: #242424;
+}
+
+.comment-form {
+  margin-bottom: 3rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
 }

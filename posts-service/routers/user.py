@@ -65,7 +65,7 @@ def update_user(
     if account_data:
         return repo.update(user_id, user)
     else:
-        return HTTPException(status_code=404, detail="token not valid")
+        return HTTPException(status_code=404, detail="not valid")
 
 
 @router.delete("/delete/{user_id}", tags=["Users"])

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./postDetail.css";
 import { useAuthContext } from "../Login/auth";
-import { useNavigate } from "react-router-dom";
 
 function PostDetails() {
   const [post, setPost] = useState([]);
@@ -28,7 +27,7 @@ function PostDetails() {
       }
     };
     if (token === false) {
-      navigate("login");
+      navigate("/login");
     }
     fetchpost();
   }, [token, navigate, params.id]);
@@ -38,7 +37,7 @@ function PostDetails() {
       <div className="container">
         <div className="row clearfix">
           <div className="col-lg-8 col-md-12 left-box">
-            <div className="card single_post">
+            <div className="card3 single_post">
               <div className="body">
                 <div className="img-post">
                   <img
@@ -53,7 +52,7 @@ function PostDetails() {
                 <p className="post-text">{post.description}</p>
               </div>
             </div>
-            <div className="card">
+            <div className="card3">
               <div className="header">
                 <h2>Comments 3</h2>
               </div>
@@ -131,7 +130,7 @@ function PostDetails() {
                 </ul>
               </div>
             </div>
-            <div className="card">
+            <div className="card3">
               <div className="header">
                 <h2>
                   Leave a comment{" "}

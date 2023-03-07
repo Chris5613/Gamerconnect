@@ -35,7 +35,7 @@ build-front-end-job:
     # CI/CD variables, that value will override the value here.
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
-    PUBLIC_URL: https://gamerconnect.gitlab.io/module3-project-gamma/
+    PUBLIC_URL: https://gamerconnect.gitlab.io/module3-project-gamma
     REACT_APP_POSTS_API_HOST: https://posts-service.nov-pt-3.mod3projects.com
   script:
     - cd ghi
@@ -77,7 +77,7 @@ build-posts-api:
   script:
     - cd posts-service
     - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
-    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/my-build-image:$COMMIT_HASH
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/posts-service-image:$COMMIT_HASH
     - docker build -f ./Dockerfile --pull -t built-posts-service .
     - docker tag built-posts-service "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
