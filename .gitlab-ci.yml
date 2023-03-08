@@ -61,7 +61,7 @@ pages:
     paths:
       - public
 
-build-posts-api:
+build-post-service:
   image: docker:19.03.1
   stage: build
   services:
@@ -75,9 +75,8 @@ build-posts-api:
     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" $DOCKER_REGISTRY_URL # Instructs GitLab to login to its registry
 
   script:
-    - cd posts-service
     - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
-    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/posts-service-image:$COMMIT_HASH
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/my-build-image:$COMMIT_HASH
     - docker build -f ./Dockerfile --pull -t built-posts-service .
     - docker tag built-posts-service "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
