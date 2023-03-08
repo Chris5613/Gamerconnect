@@ -28,6 +28,7 @@ services:
       DATABASE_URL: postgresql://postsdb:password@postgres/postsdb
       WAIT_HOSTS: postgres:5432
       SIGNING_KEY: kwCQy-ZFUzyw9oE-QOc06mYzxeSU_DeCjlGk5a
+      CORS_HOST: https://gamerconnect.gitlab.io
 
   postgres:
     build:

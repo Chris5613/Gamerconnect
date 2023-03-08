@@ -92,7 +92,6 @@ function PostForm() {
     console.log(response);
     if (response.ok) {
       const newPost = await response.json();
-      console.log(newPost);
       navigate(`/posts/${newPost.id}`);
 
       setTitle("");
@@ -113,7 +112,7 @@ function PostForm() {
 
                 <div className="row">
                   <div className="col">
-                    <div className="mb-3">
+                    <div className="create-form">
                       <div className="form-floating mb-3">
                         <input
                           onChange={titlechange}
