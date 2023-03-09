@@ -62,7 +62,7 @@ function PostDetails() {
 			setComment('');
 		}
 	};
-	const [commentslist, setCommentslist] = useState('');
+	const [commentslist, setCommentslist] = useState([]);
 	useEffect(() => {
 		const fetchComments = async () => {
 			const url = `${process.env.REACT_APP_POSTS_API_HOST}/getcomments`;
@@ -112,111 +112,44 @@ function PostDetails() {
 								<h2>Comments 3</h2>
 							</div>
 							<div className="body">
-								<ul className="comment-reply list-unstyled">
-									<li className="row clearfix">
-										<div className="icon-box col-md-2 col-4">
-											<img
-												className="img-fluid img-thumbnail"
-												src="https://kr4m.com/wp-content/uploads/2019/05/Webp.net-compress-image-3.jpg"
-												alt="second slide"
-											/>
-										</div>
-										<div className="text-box col-md-10 col-8 p-l-0 p-r0">
-											<h5 className="post-text">
-												Pete "skete" davidson
-											</h5>
-											<p>
-												The games the same thing every
-												year, such a bad game
-											</p>
-											<ul className="list-inline">
-												<li>
-													<div className="post-text">
-														Mar 09 2018
-													</div>
-												</li>
-												<li>
-													<div className="post-text">
-														Reply
-													</div>
-												</li>
-											</ul>
-										</div>
-									</li>
-									<li className="row clearfix">
-										<div className="icon-box col-md-2 col-4">
-											<img
-												className="img-fluid img-thumbnail"
-												src="https://progameguides.com/wp-content/uploads/2017/12/fortnite-outfit-default6.jpg?resize=928%2C760"
-												alt="third slide"
-											/>
-										</div>
-										<div className="text-box col-md-10 col-8 p-l-0 p-r0">
-											<h5 className="post-text">
-												Kanye West
-											</h5>
-											<p>
-												The game's good, you're just
-												bad!
-											</p>
-											<ul className="list-inline">
-												<li>
-													<div className="post-text">
-														Mar 09 2018
-													</div>
-												</li>
-												<li>
-													<div className="post-text">
-														Reply
-													</div>
-												</li>
-											</ul>
-										</div>
-									</li>
-									<li className="row clearfix">
-										<div className="icon-box col-md-2 col-4">
-											<img
-												className="img-fluid img-thumbnail"
-												src="https://wallpapercave.com/wp/wp4022717.jpg"
-												alt="fourth slide"
-											/>
-										</div>
-										<div className="text-box col-md-10 col-8 p-l-0 p-r0">
-											<h5 className="post-text">
-												Recruit 3
-											</h5>
-											<p>
-												Tbh, I agree, the games have
-												been getting worse year after
-												year. It's obvious this years
-												game is just a money grab.
-											</p>
-											<ul className="list-inline">
-												<li>
-													<div className="post-text">
-														Mar 09 2018
-													</div>
-												</li>
-												<li>
-													<div className="post-text">
-														Reply
-													</div>
-												</li>
-											</ul>
-										</div>
-									</li>
-								</ul>
+								{commentslist.map((comments) => {
+									if (comments.post_id === post.id)
+										return (
+											<li className="row clearfix">
+												<div className="icon-box col-md-2 col-4">
+													<img
+														className="img-fluid img-thumbnail"
+														src="https://kr4m.com/wp-content/uploads/2019/05/Webp.net-compress-image-3.jpg"
+														alt="second slide"
+													/>
+												</div>
+												<div className="text-box col-md-10 col-8 p-l-0 p-r0">
+													<h5 className="post-text">
+														Username
+													</h5>
+													<p className="post-text">
+														{' '}
+														{comments.comments}{' '}
+													</p>
+													<ul className="list-inline">
+														<li>
+															<div className="post-text">
+																DateTimeField
+															</div>
+														</li>
+														<li>
+															<div className="post-text"></div>
+														</li>
+													</ul>
+												</div>
+											</li>
+										);
+								})}
 							</div>
 						</div>
 						<div className="card3">
 							<div className="header">
-								<h2>
-									Leave a comment{' '}
-									<small>
-										Your email address will not be
-										published. Required fields are marked*
-									</small>
-								</h2>
+								<h2>Leave a comment </h2>
 							</div>
 							<div className="body">
 								<div className="comment-form">
@@ -224,30 +157,12 @@ function PostDetails() {
 										className="row clearfix"
 										onSubmit={handleSubmit}
 									>
-										<div className="col-sm-6">
-											<div className="form-group">
-												<input
-													type="text"
-													className="form-control"
-													placeholder="Your Name"
-												/>
-											</div>
-										</div>
-										<div className="col-sm-6">
-											<div className="form-group">
-												<input
-													type="text"
-													className="form-control"
-													placeholder="Email Address"
-												/>
-											</div>
-										</div>
 										<div className="col-sm-12">
 											<div className="form-group">
 												<textarea
 													rows="4"
 													className="form-control no-resize"
-													placeholder="Please type what you want..."
+													placeholder="Comment here"
 													onChange={commentchange}
 													required
 													value={comment}
