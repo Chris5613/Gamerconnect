@@ -67,8 +67,13 @@ def get_post(
             tags=["Posts"])
 def get_post_by_user_id(
     users_id: int,
-        repo: PostRepository = Depends(),):
-    return repo.get_byuserid(users_id)
+        repo: PostRepository = Depends(),
+        account_data:
+        dict = Depends(authenticator.get_current_account_data),):
+    if account_data:
+        return repo.get_byuserid(users_id)
+    else:
+        return HTTPException(status_code=401, detail="Invalid Token")
 
 
 @router.put("/post/{post_id}", response_model=postOut, tags=["Posts"])
