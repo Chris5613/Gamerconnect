@@ -132,7 +132,11 @@ function PostList() {
                       </div>
                       <div>
                         <button className="detail-button1" key={post.id}>
-                          <Link to={`/posts/${post.id}`} state={post.id}>
+                          <Link
+                            className="detail-link"
+                            to={`/posts/${post.id}`}
+                            state={post.id}
+                          >
                             Post Detail
                           </Link>
                         </button>

@@ -1,5 +1,6 @@
 import "./user.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [userPost, setUserPost] = useState([]);
@@ -85,6 +86,15 @@ const Profile = () => {
                       <h5 className="card-title1">{post.title} </h5>
                       <p className="card-text1">{post.description}</p>
                     </div>
+                    <button className="detail-button1" key={post.id}>
+                      <Link
+                        className="detail-link"
+                        to={`/posts/${post.id}`}
+                        state={post.id}
+                      >
+                        Link to post
+                      </Link>
+                    </button>
                   </div>
                 </div>
               </div>
