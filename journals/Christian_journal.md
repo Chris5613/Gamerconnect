@@ -49,3 +49,23 @@ I redesigned the logout and login page and added some CSS to it.
 # 2/28/23 #3/1/23
 
 Worked on fixing some bugs and css erorrs also worked on CI/CD making sure the test passed the lint
+
+# 3/2/23
+
+Fixed the Navbar rerendering issue and fixed one of the buttons
+
+# 3/3/23
+
+Error fixing and deployment
+
+# 3/4/23 - #3/7/23
+
+attempted Deployment
+
+# 3/8/23
+
+Started worknig on stretch goals like the Profile page
+
+# 3/9/23
+
+Today im working on the user update page as I wait for the comments to be merged in to finish up the profile.
