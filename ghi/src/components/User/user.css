@@ -1,0 +1,27 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-container {
+  height: 35vh;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.profile-content {
+  margin-top: 4rem;
+}
+
+.user-posts {
+  height: 90vh;
+}
+
+.profile-page {
+  background: url("https://a-static.besthdwallpaper.com/reyna-valorant-riot-video-game-wallpaper-3840x1280-73354_105.jpg")
+    no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
