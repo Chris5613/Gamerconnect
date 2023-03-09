@@ -71,7 +71,6 @@ def get_post_by_user_id(
     return repo.get_byuserid(users_id)
 
 
-
 @router.put("/post/{post_id}", response_model=postOut, tags=["Posts"])
 def update_post(
     post_id: int,

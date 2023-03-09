@@ -32,7 +32,8 @@
 }
 
 .user-comments {
-  height: 90vh;
+  height: 50vh;
+  margin-top: 1rem;
 }
 
 .detail-link {
