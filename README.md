@@ -1,147 +1,50 @@
-# Module3 Project Gamma
+# GamerConnect
 
-## Getting started
+![Context Map](docs/images/home%20page%20gamerconnect.png)
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+https://gamerconnect.gitlab.io/module3-project-gamma/
 
-## Install Extensions
+## About
 
-* Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-* Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+### Team Members
 
-## Deliverables
+- Franky Jiang
+- Christian Wu
+- Gabe Aranda
+- Dean Davidson
 
-* [ ] Wire-frame diagrams
-* [ ] API documentation
-* [ ] Project is deployed to Render.com/GitLab-pages
-* [ ] GitLab issue board is setup and in use
-* [ ] Journals
+### Description
 
-## Project layout
+We are a forum for gamers everywhere and anywhere. We are targetting gamers who need a community to play games with. Gamers can, through creating an account and choosing a specific game, create a post and garner a community to interact with.
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
+### Target Audience
 
-### Directories
+Our target audience are users that play video games. As the popularity of gaming has been skyrocketing throughout the recent years, we decided to provide a website or forum where gamers can meet one another. Through our website, gamers can now create a post looking for a friend to play with, or even share opinions on current events. Unlike a gaming reddit forum, our website is solely for games, which attracts only like-minded individuals which makes it easier to build a more close-knit community.
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+## Design
 
-The other directories, `ghi` and `sample_service`, are
-sample services, that you can start building off of or use
-as a reference point.
+- [API Design](docs/API.md)
+- [Frontend Design](docs/Frontend.md)
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+## Functionality
 
-Inside of `sample_service` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+- Gamers can sign up for an account by clicking 'get started'
+- Gamers can log into their account through login page
+- Users can look at information about the developers by scrolling to the bottom of the main home page
+- Once logged in, user will be redirected to a posts page where they are able to see all the posts created by other gamers
+- User can use the dropdown feauture to filter the page of posts to a specific game
+- User can click the 'create post' button and create a post for other users to see
+- User can click 'post detail' to look at detailed view of a post
+- User can logout by clicking the dropdown on the top right of the screen
 
-Also in `sample_service` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+## How to initialize the project
 
-The sample Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
-
-### Other files
-
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
-
-* `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-* `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to Render.com. We will learn much more about this file.
-* `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-
-## How to complete the initial deploy
-
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
-
-### Setup GitLab repo/project
-
-* make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-* remove the fork relationship: In GitLab go to:
-  
-  Settings -> General -> Advanced -> Remove fork relationship
-
-* add these GitLab CI/CD variables:
-  * PUBLIC_URL : this is your gitlab pages URL
-  * SAMPLE_SERVICE_API_HOST: enter "blank" for now
-
-#### Your GitLab pages URL
-
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
-
-If this is your project URL
-
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
-
-then your GitLab pages URL will be
-
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
-
-### Create render.com account and application
-
-* create account on render.com
-* one person create a group and invite all other members
-* create a new "Web Service"
-  * authenticate with GitLab and choose your project
-  * Enter fields:
-    * Name: name of your service
-    * Root Directory: the directory of your service in your git repo.
-      For this example use "sample_service".
-    * Environment: Docker
-    * Plan Type: Free
-  * click the "Create Web Service" button to create it
-  * the build will succeed and it will look like the server is running,
-    most likely, in 6-10 minutes, it will fail.
-  * click "Manual Deploy" -> "Deploy latest commit" and the service
-    should deploy successfully.
-
-### Update GitLab CI/CD variables
-
-Copy the service URL for your new render.com service and then paste
-that into the value for the SAMPLE_SERVICE_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
+1. Clone the repository locally
+2. Cd into the repository folder locally
+3. Run docker volume create pg-admin
+4. Run docker volume create postgres-data
+5. Run docker compose build
+6. Run docker compose up
+7. Run 'docker exec -it module3-project-gamma-posts-service-1 bash' or go into the docker container for the posts-service on docker-desktop and go to the terminal
+8. Type and run -> python -m migrations up
+9. Exit the container and prepare to not touch grass ever again as you make new friends

@@ -60,14 +60,11 @@ function SignUpForm() {
 			},
 		};
 
-		try {
-			const response = await fetch(locationUrl, fetchConfig);
-			if (response.ok) {
-				navigate('/login');
-			}
-		} catch (error) {
-			console.log(error);
+		if (password === confirmPassword) {
+			await fetch(locationUrl, fetchConfig);
 			navigate('/login');
+		} else {
+			navigate('/signup');
 		}
 	};
 
@@ -86,6 +83,7 @@ function SignUpForm() {
 						</h3>
 						<input
 							value={username}
+							required
 							onChange={(e) => setUsername(e.target.value)}
 							type="text"
 							className="fontAwesome"
@@ -93,6 +91,7 @@ function SignUpForm() {
 						/>
 						<input
 							value={email}
+							required
 							onChange={(e) => setEmail(e.target.value)}
 							type="text"
 							className="fontAwesome"
@@ -100,6 +99,7 @@ function SignUpForm() {
 						/>
 						<input
 							value={password}
+							required
 							onChange={(e) => setPassword(e.target.value)}
 							type="password"
 							className="fontAwesome"
@@ -107,6 +107,7 @@ function SignUpForm() {
 						/>
 						<input
 							value={confirmPassword}
+							required
 							onChange={(e) => setConfirmPassword(e.target.value)}
 							type="password"
 							className="fontAwesome"
