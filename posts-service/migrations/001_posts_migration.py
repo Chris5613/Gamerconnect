@@ -52,7 +52,9 @@ steps = [
         CREATE TABLE comments (
             id SERIAL PRIMARY KEY NOT NULL,
             post_id INTEGER NOT NULL REFERENCES post(id),
-            comments varchar(200) NOT NULL
+            comments varchar(200) NOT NULL,
+            user_id INTEGER NOT NULL REFERENCES users(id),
+            created_on TIMESTAMPTZ DEFAULT Now()
         );
         """,
         # "Down" SQL statement

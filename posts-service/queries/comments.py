@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, List, Union
 from queries.pool import pool
+from datetime import datetime
 
 class Error(BaseModel):
     message: str
@@ -8,11 +9,15 @@ class Error(BaseModel):
 class commentIn(BaseModel):
     post_id: int
     comments: str
+    user_id: int
+    created_on: datetime
 
 class commentOut(BaseModel):
     id: int
     post_id: int
     comments: str
+    user_id: int
+    created_on: datetime
 
 
 class CommentsRepository:
@@ -23,14 +28,16 @@ class CommentsRepository:
                     result = db.execute(
                         """
                         INSERT INTO comments
-                            (post_id, comments)
+                            (post_id, comments, user_id, created_on)
                         Values
-                            (%s, %s)
+                            (%s, %s, %s, %s)
                         RETURNING id;
                         """,
                         [
                             comment.post_id,
-                            comment.comments
+                            comment.comments,
+                            comment.user_id,
+                            comment.created_on
                         ]
                     )
                     id = result.fetchone()[0]
@@ -46,7 +53,7 @@ class CommentsRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, post_id, comments
+                        SELECT id, post_id, comments, user_id, created_on
                         FROM comments;
                         """
                     )
@@ -56,6 +63,8 @@ class CommentsRepository:
                             id=record[0],
                             post_id=record[1],
                             comments=record[2],
+                            user_id=record[3],
+                            created_on=record[4]
                         )
                         result.append(comment)
                     return result
