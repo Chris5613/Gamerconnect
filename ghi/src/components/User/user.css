@@ -14,7 +14,12 @@
 }
 
 .user-posts {
-  height: 90vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .profile-page {
@@ -24,4 +29,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.user-comments {
+  height: 90vh;
 }

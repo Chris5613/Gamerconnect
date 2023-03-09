@@ -32,7 +32,7 @@ function App() {
           <Route path="/login" element={<UserLoginForm />} />
           <Route path="/posts" element={<PostList />} />
           <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/settings" element={<Settings />} /> */}
+          <Route path="/settings" element={<Settings />} />
         </Routes>
         <Footer />
       </AuthProvider>
