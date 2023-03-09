@@ -1,11 +1,13 @@
 import "./user.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useToken } from "../Login/auth";
 
 const Profile = () => {
   const [userPost, setUserPost] = useState([]);
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState("");
+  const { token } = useToken();
 
   const userData = async () => {
     const url = `${process.env.REACT_APP_POSTS_API_HOST}/token`;
@@ -38,6 +40,7 @@ const Profile = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       };
       const response = await fetch(postUrl, fetchConfig);
@@ -47,7 +50,7 @@ const Profile = () => {
       }
     };
     fetchPost();
-  }, [user_id]);
+  }, [user_id, token]);
 
   return (
     <>
