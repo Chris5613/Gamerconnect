@@ -37,13 +37,38 @@ function PostDetails() {
 		setComment(value);
 	};
 
+	const [cur_user, setUser] = useState('');
+	const [cur_useranme, setUsername] = useState('');
+	useEffect(() => {
+		const userData = async () => {
+			const url = `${process.env.REACT_APP_POSTS_API_HOST}/token`;
+			try {
+				const response = await fetch(url, {
+					credentials: 'include',
+				});
+				if (response.ok) {
+					const data = await response.json();
+					console.log(data);
+					const user_info = data.account.id;
+					const user_username = data.account.username;
+					console.log('USERRRRRR INFOOOOOOOOOOO', user_info);
+					setUsername(user_username);
+					setUser(user_info);
+				}
+			} catch (e) {}
+			return false;
+		};
+		userData();
+	}, [token, navigate, params.id]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const data = {};
 		data.comments = comment;
 		data.post_id = post.id;
-		console.log('LOOOOOOOK HEREEEEEEEE', data);
+		data.user_id = cur_user;
+		data.username = cur_useranme;
 
 		const postURL = `${process.env.REACT_APP_POSTS_API_HOST}/comment`;
 		const fetchConfig = {
@@ -109,7 +134,7 @@ function PostDetails() {
 						</div>
 						<div className="card3">
 							<div className="header">
-								<h2>Comments 3</h2>
+								<h2>Comments</h2>
 							</div>
 							<div className="body">
 								{commentslist.map((comments) => {
@@ -125,11 +150,12 @@ function PostDetails() {
 												</div>
 												<div className="text-box col-md-10 col-8 p-l-0 p-r0">
 													<h5 className="post-text">
-														Username
+														gamer: @
+														{comments.username}
 													</h5>
 													<p className="post-text">
-														{' '}
-														{comments.comments}{' '}
+														comment:{' '}
+														{comments.comments}
 													</p>
 													<ul className="list-inline">
 														<li>

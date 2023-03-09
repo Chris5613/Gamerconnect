@@ -10,14 +10,14 @@ class commentIn(BaseModel):
     post_id: int
     comments: str
     user_id: int
-    created_on: datetime
+    username: str
 
 class commentOut(BaseModel):
     id: int
     post_id: int
     comments: str
     user_id: int
-    created_on: datetime
+    username: str
 
 
 class CommentsRepository:
@@ -28,7 +28,7 @@ class CommentsRepository:
                     result = db.execute(
                         """
                         INSERT INTO comments
-                            (post_id, comments, user_id, created_on)
+                            (post_id, comments, user_id, username)
                         Values
                             (%s, %s, %s, %s)
                         RETURNING id;
@@ -37,7 +37,7 @@ class CommentsRepository:
                             comment.post_id,
                             comment.comments,
                             comment.user_id,
-                            comment.created_on
+                            comment.username
                         ]
                     )
                     id = result.fetchone()[0]
@@ -53,7 +53,7 @@ class CommentsRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, post_id, comments, user_id, created_on
+                        SELECT id, post_id, comments, user_id, username
                         FROM comments;
                         """
                     )
@@ -64,7 +64,7 @@ class CommentsRepository:
                             post_id=record[1],
                             comments=record[2],
                             user_id=record[3],
-                            created_on=record[4]
+                            username=record[4]
                         )
                         result.append(comment)
                     return result

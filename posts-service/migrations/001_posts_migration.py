@@ -54,7 +54,7 @@ steps = [
             post_id INTEGER NOT NULL REFERENCES post(id),
             comments varchar(200) NOT NULL,
             user_id INTEGER NOT NULL REFERENCES users(id),
-            created_on TIMESTAMPTZ DEFAULT Now()
+            username varchar(250) NOT NULL
         );
         """,
         # "Down" SQL statement
