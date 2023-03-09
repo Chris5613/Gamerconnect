@@ -59,10 +59,13 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
   height: 90vh;
   transform: translateY(-10%);
-  margin-top: 1rem;
+}
+
+.main-img {
+  display: flex;
+  margin-right: 30px;
 }
 
 .main-content h1 {
@@ -106,11 +109,6 @@ body {
 
 #team-title {
   color: rgb(178, 70, 70);
-}
-
-.main-img {
-  display: flex;
-  margin-left: 30px;
 }
 
 .container {
@@ -205,49 +203,75 @@ body {
   margin: 20px;
 }
 
-.footer-content {
+/* do the css for the  footer class*/
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.footer .footer-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+}
+
+.footer .footer-content .footer-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer .footer-content .footer-section .footer-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.footer .footer-content .footer-section .footer-text {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.footer .footer-content .footer-section .socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .footer-content .footer-section .socials a {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.footer .footer-content .footer-section .socials a:hover {
+  color: #ff676d;
+}
+
+.footer .footer-bottom {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
   text-align: center;
+  font-size: 20px;
 }
 
-.footer-content h3 {
-  font-size: 2.5rem;
-  font-weight: 400;
-  text-transform: capitalize;
-  line-height: 3rem;
+.footer .footer-bottom .footer-text {
+  font-size: 20px;
 }
 
-.footer-content p {
-  max-width: 31.25rem;
-  margin: 0.625rem auto;
-  line-height: 1.75rem;
-  font-size: 1.5rem;
+.footer .footer-bottom .footer-text a {
+  color: #ff676d;
 }
 
-.footer-bottom {
-  width: 100vw;
-  padding: 1.25rem 0;
-  text-align: center;
+.footer .footer-bottom .footer-text a:hover {
+  color: #ffffff;
 }
 
-.footer-bottom p {
-  font-size: 1.063rem;
-  word-spacing: 0.125rem;
-  text-transform: capitalize;
+.footer-link {
+  color: white;
 }
 
-.footer-bottom span {
-  text-transform: uppercase;
-  opacity: 0.4;
-  font-weight: 200;
-}
-
-footer {
-  background-color: black;
-  position: static;
-  bottom: 0;
-  width: 100%;
+.socials {
+  margin-left: 0.5rem;
 }

@@ -6,7 +6,7 @@ const Team = () => {
       </h1>
       <div className="main-card">
         <div className="group-cards">
-          <div className="card">
+          <div className="card animate__animated animate__bounce animate__repeat-3">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -43,7 +43,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card animate__animated animate__bounce animate__repeat-3">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -80,7 +80,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card animate__animated animate__bounce animate__repeat-3">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -117,7 +117,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card animate__animated animate__bounce animate__repeat-3">
             <div className="card-content">
               <div className="card-img">
                 <img
