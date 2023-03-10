@@ -74,11 +74,11 @@ const Profile = () => {
           </div>
         </div>
         <h2>
-          <u>{user_name}'s posts</u>
+          <u>{user_name}'s Posts</u>
         </h2>
         <div className="user-posts">
           {userPost.map((post) => {
-            if (post.length > 0)
+            if (post.length !== 0)
               return (
                 <div className="page1" key={post.id}>
                   <div className="card-deck1 hvr-grow" key={post.id}>
@@ -105,14 +105,14 @@ const Profile = () => {
                   </div>
                 </div>
               );
-            else return <h1>No Post</h1>;
+            else return <p>No posts</p>;
           })}
         </div>
         <div className="user-comments">
           <h2>
-            <u>{user_name}'s comments</u>
+            <u>{user_name}'s Comments</u>
           </h2>
-          <h1 id="profile-comments">No Comments</h1>
+          <p>No comments</p>
         </div>
       </div>
     </>
