@@ -19,7 +19,6 @@ function PostDetails() {
         },
       };
       const response = await fetch(postUrl, fetchConfig);
-      console.log(response);
       if (response.ok) {
         const data = await response.json();
         setPost(data);
@@ -40,8 +39,8 @@ function PostDetails() {
               <div className="body">
                 <div className="img-post">
                   <img
-                    className="d-block img-fluid"
-                    src="https://progameguides.com/wp-content/uploads/2019/01/fortnite-outfit-jonesy.jpg?fit=875%2C915"
+                    className="img4"
+                    src={`${post.picture_url}`}
                     alt="First slide"
                   />
                 </div>

@@ -24,10 +24,8 @@ function PostList() {
     };
 
     const response = await fetch(url, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       setPosts(data);
     }
   };
