@@ -63,7 +63,7 @@ const Nav = () => {
                     >
                       Home
                     </NavLink>
-                    {/* <li className="nav-item dropdown">
+                    <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle bg-black"
                         href="/"
@@ -107,7 +107,7 @@ const Nav = () => {
                           </NavLink>
                         </li>
                       </ul>
-                    </li> */}
+                    </li>
                     <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle bg-black"
@@ -133,22 +133,6 @@ const Nav = () => {
                             to="chat"
                           >
                             Chat
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            className="dropdown-item dropdown-links"
-                            to="news"
-                          >
-                            News
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            className="dropdown-item dropdown-links"
-                            to="events"
-                          >
-                            Events
                           </NavLink>
                         </li>
                       </ul>
