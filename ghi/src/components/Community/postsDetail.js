@@ -39,7 +39,7 @@ function PostDetails() {
               <div className="body">
                 <div className="img-post">
                   <img
-                    className="d-block img-fluid"
+                    className="img4"
                     src={`${post.picture_url}`}
                   />
                 </div>
