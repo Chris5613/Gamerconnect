@@ -58,15 +58,13 @@ const Nav = () => {
                 {loggedIn ? (
                   <>
                     <li className="nav-item">
-                      <NavLink className="nav-links" to="">
-                        <a
-                          className="nav-link dropdown-links"
-                          aria-current="page"
-                          href="/"
-                        >
-                          Home
-                        </a>
-                      </NavLink>
+                      <a
+                        className="nav-link dropdown-links"
+                        aria-current="page"
+                        href="/"
+                      >
+                        Home
+                      </a>
                     </li>
                     <li className="nav-item dropdown">
                       <a
@@ -80,44 +78,36 @@ const Nav = () => {
                       </a>
                       <ul className="dropdown-menu">
                         <li>
-                          <NavLink className="nav-links" to="/">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Valorant
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="valorant"
+                          >
+                            Valorant
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="/">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Apex Legends
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="apex"
+                          >
+                            Apex Legends
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="/">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Fortnite
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="fortnite"
+                          >
+                            Fortnite
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="/">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Call of Duty
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="cod"
+                          >
+                            Call of Duty
+                          </a>
                         </li>
                       </ul>
                     </li>
@@ -133,44 +123,36 @@ const Nav = () => {
                       </a>
                       <ul className="dropdown-menu">
                         <li>
-                          <NavLink className="nav-links" to="posts">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Posts
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="posts"
+                          >
+                            Posts
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="posts">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Chat
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="chat"
+                          >
+                            Chat
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="posts">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              News
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="news"
+                          >
+                            News
+                          </a>
                         </li>
                         <li>
-                          <NavLink className="nav-links" to="posts">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="posts"
-                            >
-                              Events
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="events"
+                          >
+                            Events
+                          </a>
                         </li>
                       </ul>
                     </li>
@@ -186,38 +168,33 @@ const Nav = () => {
                           src="https://cdn-icons-png.flaticon.com/512/396/396449.png?w=826&t=st=1676745310~exp=1676745910~hmac=64854919d3cafb9ed6d69d0dd9d8baa6846af6ef3810a226c163a472e623cad3"
                           alt="user"
                           width="30px"
-                        ></img>
+                        />
                       </a>
                       <ul className="dropdown-menu dropdown">
                         <li>
-                          <NavLink to="profile">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="/"
-                            >
-                              Profile
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="profile"
+                          >
+                            Profile
+                          </a>
                         </li>
                         <li>
-                          <NavLink to="settings">
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="/"
-                            >
-                              Settings
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="settings"
+                          >
+                            Settings
+                          </a>
                         </li>
                         <li>
-                          <NavLink to="/" onClick={logout}>
-                            <a
-                              className="dropdown-item dropdown-links"
-                              href="/"
-                            >
-                              Logout
-                            </a>
-                          </NavLink>
+                          <a
+                            className="dropdown-item dropdown-links"
+                            href="/"
+                            onClick={logout}
+                          >
+                            Logout
+                          </a>
                         </li>
                       </ul>
                     </li>

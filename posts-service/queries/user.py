@@ -18,6 +18,16 @@ class UserIn(BaseModel):
     email: str
 
 
+class UserUpdate(BaseModel):
+    username: str
+    email: str
+
+
+class UserUpdateOut(BaseModel):
+    username: str
+    email: str
+
+
 class UserOut(BaseModel):
     id: int
     username: str
@@ -109,7 +119,7 @@ class UserRepository:
             print(e)
             return {"User deleted": False}
 
-    def update(self, user_id: int, user: UserIn) -> UserOut:
+    def update(self, user_id: int, users: UserUpdate) -> UserOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -117,21 +127,20 @@ class UserRepository:
                         """
                         UPDATE users
                         SET username = %s
-                            , hashed_password = %s
-                            , email =  %s
-                        WHERE id =  %s
+                            , email = %s
+                        WHERE user_id = %s
                         """,
                         [
-                            user.username,
-                            user.password,
-                            user.email,
+                            users.username,
+                            users.email,
                             user_id
                         ]
                     )
-                    return self.user_into_out(user_id, user)
+                    old_data = users.dict()
+                    return UserOut(**old_data)
         except Exception as e:
             print(e)
-            return {"User has not been updated"}
+            return {"message": "Could not update"}
 
     def get_all(self) -> List[UserOut]:
         try:

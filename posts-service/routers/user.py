@@ -1,4 +1,11 @@
-from queries.user import UserIn, UserRepository, UserOut, DuplicateAccountError
+from queries.user import (
+    UserIn,
+    UserUpdate,
+    UserUpdateOut,
+    UserRepository,
+    UserOut,
+    DuplicateAccountError
+)
 from fastapi import (
     Depends,
     HTTPException,
@@ -57,11 +64,11 @@ async def create_account(
 @router.put("/update/{user_id}", tags=["Users"])
 def update_user(
     user_id: int,
-        user: UserIn,
+        user: UserUpdate,
         repo: UserRepository = Depends(),
         account_data:
         dict = Depends(authenticator.get_current_account_data),
-            ) -> UserOut:
+            ) -> UserUpdateOut:
     if account_data:
         return repo.update(user_id, user)
     else:
