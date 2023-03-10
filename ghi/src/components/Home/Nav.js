@@ -58,7 +58,9 @@ const Nav = () => {
                 {loggedIn ? (
                   <>
                     <li className="nav-item">
-                      <NavLink className="nav-links dropdown-links" to="/">
+                      <NavLink
+                        className="nav-link dropdown-links" to="/"
+                      >
                         Home
                       </NavLink>
                     </li>
