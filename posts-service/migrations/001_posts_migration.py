@@ -45,5 +45,21 @@ steps = [
         """
         DROP TABLE post;
         """
+    ],
+    [
+        # "Up" SQL statement
+        """
+        CREATE TABLE likes (
+            user_id bigint REFERENCES users(id) NOT NULL,
+            post_id bigint REFERENCES post(id) NOT NULL,
+            PRIMARY KEY (user_id, post_id)
+
+        );
+        CREATE INDEX ON likes (post_id);
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE likes;
+        """
     ]
 ]

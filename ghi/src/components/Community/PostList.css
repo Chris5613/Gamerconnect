@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
 .dropdown-2,
 .dropdown-3,
 .card1,
@@ -171,4 +173,60 @@
 .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+pass
+pass
+pass
+
+.heart-btn{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.content:hover {
+  background-color: rgb(226, 31, 31);
+}
+
+.content{
+  padding: 10px 20px;
+  border: 2px black;
+  border-radius: 10px;
+  background-color: transparent;
+  margin-top:10px;
+}
+
+.heart:hover{
+  height: 40px;
+  width: 40px
+}
+
+.heart{
+  position: absolute;
+  background: url("img.png") no-repeat;
+  background-position: left;
+  background-size: 2900%;
+  height: 50px;
+  width: 50px;
+  top: 72%;
+  left: 43%;
+  transform: translate(-50%,-50%);
+}
+
+.text{
+  font-size: 15px;
+  margin-left: 15px;
+  color: black;
+  font-family: 'Montserrat',sans-serif;
+}
+
+.text:hover{
+  color:rgb(238, 231, 231)
+}
+
+.text-1{
+  color: black;
+  font-family: 'Montserrat',sans-serif;
 }

@@ -6,12 +6,29 @@ import "./PostList.css";
 function PostList() {
   const [posts, setPosts] = useState([]);
   const [games, setGames] = useState([]);
+  const [likess, setLikes] = useState([])
+  const [cur_user, setUser] = useState("");
   const { token } = useAuthContext();
 
   const [game, setGame] = useState("");
   const gamechange = (event) => {
     const value = event.target.value;
     setGame(value);
+  };
+
+  const userData = async () => {
+    const url = `${process.env.REACT_APP_POSTS_API_HOST}/token`;
+    try {
+      const response = await fetch(url, {
+        credentials: "include",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const user_info = data.account.id;
+        setUser(user_info);
+      }
+    } catch (e) {}
+    return false;
   };
 
   const fetchData = async (token) => {
@@ -41,12 +58,36 @@ function PostList() {
     }
   };
 
+  const getLikes = async () => {
+    const url = `${process.env.REACT_APP_POSTS_API_HOST}/likes`;
+    const response = await fetch(url);
+    if (response.ok) {
+      const likes = await response.json();
+      setLikes(likes);
+    }
+  };
+
   useEffect(() => {
     if (token) {
       fetchData(token);
       getGames();
+      userData();
+      getLikes();
     }
   }, [token]);
+
+  async function likepost(id) {
+    const url = `${process.env.REACT_APP_POSTS_API_HOST}/like/${id}/${cur_user}`
+    const fetchConfig = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }
+    };
+    await fetch(url, fetchConfig);
+    window.location.reload();
+  }
 
   return (
     <div>
@@ -101,9 +142,28 @@ function PostList() {
                         <small className="text-muted1">{post.game}</small>
                         <small className="text-muted1">@ {post.username}</small>
                       </div>
+                      <div class="heart-btn">
+                        <button
+                                onClick={() => likepost(post.id)}
+                                type="button"
+                                className="content"
+                              >
+                                <span className="heart"></span>
+                                <div className="text">
+                                  Like {likess.map((likesss) => {
+                                  if (likesss.postid === post.id)
+                                    return (
+                                      likesss.num_likes
+                                    );
+                                  else
+                                    return null
+                                })}
+                                </div>
+                        </button>
+                      </div>
                       <div>
                         <button className="detail-button1" key={post.id}>
-                          <Link to={`/posts/${post.id}`} state={post.id}>
+                          <Link className="text-1" to={`/posts/${post.id}`} state={post.id}>
                             Post Detail
                           </Link>
                         </button>
@@ -130,9 +190,28 @@ function PostList() {
                         <small className="text-muted1">{post.game}</small>
                         <small className="text-muted1">@ {post.username}</small>
                       </div>
+                      <div class="heart-btn">
+                        <button
+                                onClick={() => likepost(post.id)}
+                                type="button"
+                                className="content"
+                              >
+                                <span className="heart"></span>
+                                <div className="text">
+                                  Like {likess.map((likesss) => {
+                                  if (likesss.postid === post.id)
+                                    return (
+                                      likesss.num_likes
+                                    );
+                                  else
+                                    return null
+                                })}
+                                </div>
+                        </button>
+                      </div>
                       <div>
                         <button className="detail-button1" key={post.id}>
-                          <Link to={`/posts/${post.id}`} state={post.id}>
+                          <Link className="text-1" to={`/posts/${post.id}`} state={post.id}>
                             Post Detail
                           </Link>
                         </button>
