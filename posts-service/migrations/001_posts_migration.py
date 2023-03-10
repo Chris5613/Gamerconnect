@@ -33,7 +33,7 @@ steps = [
         """
         CREATE TABLE post (
             id SERIAL PRIMARY KEY NOT NULL,
-            title varchar(50) NOT NULL,
+            title varchar(150) NOT NULL,
             description varchar(256) NOT NULL,
             picture_url text NULL,
             user_id INTEGER NOT NULL REFERENCES users(id),
