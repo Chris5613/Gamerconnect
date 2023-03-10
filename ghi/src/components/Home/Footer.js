@@ -17,11 +17,6 @@ const footer = () => {
                 <i className="fa-brands fa-youtube socials"></i>
                 <i className="fa-brands fa-twitter socials"></i>
               </h4>
-              <h5 className="list-unstyled">
-                <li>646-345-2345</li>
-                <li>San, Francisco</li>
-                <li>123 Street</li>
-              </h5>
             </div>
             <div className="col">
               <h4>Community</h4>

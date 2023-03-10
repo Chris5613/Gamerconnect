@@ -78,36 +78,36 @@ const Nav = () => {
                       </a>
                       <ul className="dropdown-menu">
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="valorant"
+                            to="val"
                           >
                             Valorant
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="apex"
+                            to="apex"
                           >
-                            Apex Legends
-                          </a>
+                            Apex Legend
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="fortnite"
+                            to="fortnite"
                           >
                             Fortnite
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="cod"
+                            to="cod"
                           >
                             Call of Duty
-                          </a>
+                          </NavLink>
                         </li>
                       </ul>
                     </li>
@@ -123,36 +123,36 @@ const Nav = () => {
                       </a>
                       <ul className="dropdown-menu">
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="posts"
+                            to="posts"
                           >
                             Posts
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="chat"
+                            to="chat"
                           >
                             Chat
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="news"
+                            to="news"
                           >
                             News
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="events"
+                            to="events"
                           >
                             Events
-                          </a>
+                          </NavLink>
                         </li>
                       </ul>
                     </li>
@@ -172,29 +172,29 @@ const Nav = () => {
                       </a>
                       <ul className="dropdown-menu dropdown">
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="profile"
+                            to="profile"
                           >
                             Profile
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="settings"
+                            to="settings"
                           >
                             Settings
-                          </a>
+                          </NavLink>
                         </li>
                         <li>
-                          <a
+                          <NavLink
                             className="dropdown-item dropdown-links"
-                            href="/"
+                            to="/"
                             onClick={logout}
                           >
                             Logout
-                          </a>
+                          </NavLink>
                         </li>
                       </ul>
                     </li>
