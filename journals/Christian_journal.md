@@ -30,7 +30,7 @@ Worked on the JWT token and was able to get that up and running but do have some
 
 Today I worked on addressing some of the minor errors that were happening with the JWT token and on the Post list page. We had some background issues that I fixed, and Fixed some of the CSS issues that were happening on the post list page.
 
-# 2/25/23
+# 2/24/23
 
 Today since I finished all my task I am reviewing the code and making sure everything is up to par and that there are no errors. I also deleted unnecessary files and folders plus refactoring some of the CSS.
 
@@ -49,3 +49,23 @@ I redesigned the logout and login page and added some CSS to it.
 # 2/28/23 #3/1/23
 
 Worked on fixing some bugs and css erorrs also worked on CI/CD making sure the test passed the lint
+
+# 3/2/23
+
+Fixed the Navbar rerendering issue and fixed one of the buttons
+
+# 3/3/23
+
+Error fixing and deployment
+
+# 3/4/23 - #3/7/23
+
+attempted Deployment
+
+# 3/8/23
+
+Started worknig on stretch goals like the Profile page
+
+# 3/9/23
+
+Today im working on the user update page as I wait for the comments to be merged in to finish up the profile.
