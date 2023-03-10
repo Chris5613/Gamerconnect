@@ -15,7 +15,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 2, 2);
+  background-color: rgb(148, 27, 27);
   border-radius: 20px;
   border: 3px solid rgb(0, 0, 0);
 }
@@ -141,7 +141,7 @@ body {
 
 .group-cards {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 767px) {
