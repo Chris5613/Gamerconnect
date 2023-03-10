@@ -57,16 +57,13 @@ const Nav = () => {
               >
                 {loggedIn ? (
                   <>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link dropdown-links"
-                        aria-current="page"
-                        href="/"
-                      >
-                        Home
-                      </a>
-                    </li>
-                    <li className="nav-item dropdown">
+                    <NavLink
+                      className="nav-links dropdown-links homelink"
+                      to="/"
+                    >
+                      Home
+                    </NavLink>
+                    {/* <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle bg-black"
                         href="/"
@@ -110,7 +107,7 @@ const Nav = () => {
                           </NavLink>
                         </li>
                       </ul>
-                    </li>
+                    </li> */}
                     <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle bg-black"
