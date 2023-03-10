@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import posts, user, games
+from routers import posts, user, games, messaging, connection
 from auth import authenticator
 
 
@@ -18,3 +18,5 @@ app.include_router(posts.router)
 app.include_router(user.router)
 app.include_router(games.router)
 app.include_router(authenticator.router)
+app.include_router(messaging.router)
+app.include_router(connection.router)

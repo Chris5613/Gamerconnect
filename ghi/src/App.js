@@ -8,6 +8,7 @@ import SignUpForm from "./components/SignUp/SignUpForm";
 import PostForm from "./components/Community/PostForm";
 import Footer from "./components/Home/Footer";
 import PostDetails from "./components/Community/postsDetail";
+import Messaging from "./components/messaging/messaging";
 
 function GetToken() {
   useToken();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<UserLoginForm />} />
           <Route path="/posts" element={<PostList />} />
+          <Route path="/messages" element={<Messaging />} />
         </Routes>
         <Footer />
       </AuthProvider>
