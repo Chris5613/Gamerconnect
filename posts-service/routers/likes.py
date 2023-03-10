@@ -1,13 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from typing import List, Union
-from auth import authenticator
 from queries.likes import LikesRepository, Message, Likes
 
 
 router = APIRouter()
 
 
-@router.post("/like/{post_id}/{user_id}", response_model=Message, tags=["Likes"])
+@router.post("/like/{post_id}/{user_id}", response_model=Message,
+             tags=["Likes"])
 def like_post(
     post_id: int,
         user_id: int,
@@ -23,7 +23,9 @@ def get_likes(
         ):
     return repo.get_likes_by_postid(post_id)
 
-@router.get("/likes", response_model=Union[Message, List[Likes]], tags=["Likes"])
+
+@router.get("/likes", response_model=Union[Message, List[Likes]],
+            tags=["Likes"])
 def get_all_likes(
         repo: LikesRepository = Depends()
         ):
