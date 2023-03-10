@@ -106,7 +106,7 @@ function PostForm() {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <div className="card-body">
-              <form onSubmit={handleSubmit}>
+              <form className="create-form" onSubmit={handleSubmit}>
                 <h1 className="card-title">Create a post</h1>
 
                 <div className="row">
@@ -123,10 +123,9 @@ function PostForm() {
                           className="form-control"
                           value={title}
                         />
-                        <label htmlFor="title">Title</label>
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-2">
                         <label htmlFor="description" className="form-label">
                           Description
                         </label>
@@ -141,6 +140,7 @@ function PostForm() {
                       </div>
 
                       <div className="mb-3">
+                        <label className="form-label-1" htmlFor="picture">Picture URL</label>
                         <input
                           onChange={picturechange}
                           placeholder="Picture URL"
@@ -150,7 +150,6 @@ function PostForm() {
                           className="form-control"
                           value={picture}
                         />
-                        <label htmlFor="picture">Picture URL</label>
                       </div>
 
                       <select

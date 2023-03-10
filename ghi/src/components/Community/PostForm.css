@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
 .card-title {
-  margin-right: 60px;
+  margin-right: 55px;
+  margin-top: 2rem;
+  color:black;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 2.25rem
+}
+
+.card-body {
+  margin-top: -3rem;
+  background-color: gray;
+  width: 35rem;
+  margin-bottom: 5rem
 }
 
 .create-btn {
@@ -14,6 +27,45 @@
   width: 10%;
 }
 
+.card-title{
+  margin-left: 40px;
+}
+
 .create-form {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: 1rem
+}
+
+.form-control{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.create-form{
+  display: inline-block;
+  text-align: center;
+}
+
+.form-select {
+  width: 275px;
+  display: inline-block;
+  text-align: center;
+}
+
+.mb-3 {
+  width:275px
+}
+
+.form-label {
+  font-family: 'Montserrat',sans-serif;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.form-label-1 {
+  font-family: 'Montserrat',sans-serif;
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
