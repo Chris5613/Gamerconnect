@@ -1,0 +1,93 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-container {
+  height: 35vh;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.profile-content {
+  margin-top: 4rem;
+}
+
+.user-posts {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.profile-page {
+  background: url("https://a-static.besthdwallpaper.com/reyna-valorant-riot-video-game-wallpaper-3840x1280-73354_105.jpg")
+    no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.user-comments {
+  height: 50vh;
+  margin-top: 1rem;
+}
+
+.detail-link {
+  color: rgb(0, 0, 0);
+}
+
+/* style the update form  */
+.update-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.update-form input {
+  width: 30%;
+  height: 4rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: black;
+}
+
+.update-form button {
+  width: 30%;
+  height: 4rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: black;
+  background-color: rgb(204, 37, 37);
+}
+
+.form-container {
+  height: 100vh;
+}
+
+.dropdown-6 {
+  width: 30%;
+  height: 4rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: black;
+}
+
+/* style the favorite game select  */
+.favorite-game {
+  width: 30%;
+  height: 4rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: black;
+}

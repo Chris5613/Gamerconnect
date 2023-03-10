@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 
-input {
+.signup-input {
   font-size: 14px;
   border-radius: 15px;
   border: 1px solid lightgray;

@@ -6,7 +6,7 @@ const Team = () => {
       </h1>
       <div className="main-card">
         <div className="group-cards">
-          <div className="card animate__animated animate__bounce animate__repeat-3">
+          <div className="card">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -16,8 +16,7 @@ const Team = () => {
               </div>
               <div className="info">
                 <div className="name">Christian Wu</div>
-                <div className="job">Developer</div>
-                <div className="job">Favorite Game: Valorant</div>
+                <div className="job">Co-Founder</div>
               </div>
               <div className="media-icons">
                 <a href="https://gitlab.com/christianwu56">
@@ -43,7 +42,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card animate__animated animate__bounce animate__repeat-3">
+          <div className="card">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -53,8 +52,7 @@ const Team = () => {
               </div>
               <div>
                 <div className="name">Gabriel Aranda </div>
-                <div className="job">Developer</div>
-                <div className="job">Favorite Game: COD</div>
+                <div className="job">Co-Founder</div>
               </div>
               <div className="media-icons">
                 <a href="https://gitlab.com/Garan2">
@@ -80,7 +78,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card animate__animated animate__bounce animate__repeat-3">
+          <div className="card">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -90,8 +88,7 @@ const Team = () => {
               </div>
               <div>
                 <div className="name">Dean Davidson</div>
-                <div className="job">Developer</div>
-                <div className="job">Favorite Game: Overwatch</div>
+                <div className="job">Co-Founder</div>
               </div>
               <div className="media-icons">
                 <a href="https://gitlab.com/deandavidson">
@@ -117,7 +114,7 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="card animate__animated animate__bounce animate__repeat-3">
+          <div className="card">
             <div className="card-content">
               <div className="card-img">
                 <img
@@ -127,8 +124,7 @@ const Team = () => {
               </div>
               <div>
                 <div className="name">Franky Jiang</div>
-                <div className="job">Developer</div>
-                <div className="job">Favorite Game: Valorant</div>
+                <div className="job">Co-Founder</div>
               </div>
               <div className="media-icons">
                 <a href="https://gitlab.com/frankyscoding">

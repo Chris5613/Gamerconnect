@@ -21,7 +21,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .nav-container {
-  margin-bottom: 2rem;
   line-height: 1.5rem;
 }
 
@@ -157,6 +156,10 @@ body {
   text-align: center;
 }
 
+.group-cards {
+  margin-left: 8rem;
+}
+
 .group-cards .card .card-content .card-img {
   height: 130px;
   width: 130px;
@@ -164,7 +167,7 @@ body {
   padding: 3px;
   background: #ff676d;
   margin-bottom: 14px;
-  margin-left: 50px;
+  margin-left: 15px;
 }
 
 .card .card-content .card-img img {
@@ -187,7 +190,7 @@ body {
 
 .card .card-content .media-icons {
   margin-top: 10px;
-  margin-left: 45px;
+  margin-left: 15px;
   display: flex;
 }
 
