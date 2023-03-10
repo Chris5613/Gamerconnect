@@ -89,7 +89,6 @@ function PostForm() {
       },
     };
     const response = await fetch(postURL, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const newPost = await response.json();
       navigate(`/posts/${newPost.id}`);
