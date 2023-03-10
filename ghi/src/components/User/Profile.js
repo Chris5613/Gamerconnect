@@ -73,39 +73,46 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <h2>{user_name}'s posts</h2>
+        <h2>
+          <u>{user_name}'s posts</u>
+        </h2>
         <div className="user-posts">
           {userPost.map((post) => {
-            return (
-              <div className="page1" key={post.id}>
-                <div className="card-deck1 hvr-grow" key={post.id}>
-                  <div className="card1">
-                    <img
-                      className="card-img-top1"
-                      src={post.picture_url}
-                      alt="Card cap"
-                    />
-                    <div className="card-body1">
-                      <h5 className="card-title1">{post.title} </h5>
-                      <p className="card-text1">{post.description}</p>
+            if (post.length > 0)
+              return (
+                <div className="page1" key={post.id}>
+                  <div className="card-deck1 hvr-grow" key={post.id}>
+                    <div className="card1">
+                      <img
+                        className="card-img-top1"
+                        src={post.picture_url}
+                        alt="Card cap"
+                      />
+                      <div className="card-body1">
+                        <h5 className="card-title1">{post.title} </h5>
+                        <p className="card-text1">{post.description}</p>
+                      </div>
+                      <button className="detail-button1" key={post.id}>
+                        <Link
+                          className="detail-link"
+                          to={`/posts/${post.id}`}
+                          state={post.id}
+                        >
+                          Link to post
+                        </Link>
+                      </button>
                     </div>
-                    <button className="detail-button1" key={post.id}>
-                      <Link
-                        className="detail-link"
-                        to={`/posts/${post.id}`}
-                        state={post.id}
-                      >
-                        Link to post
-                      </Link>
-                    </button>
                   </div>
                 </div>
-              </div>
-            );
+              );
+            else return <h1>No Post</h1>;
           })}
         </div>
         <div className="user-comments">
-          <h2>{user_name}'s comments</h2>
+          <h2>
+            <u>{user_name}'s comments</u>
+          </h2>
+          <h1 id="profile-comments">No Comments</h1>
         </div>
       </div>
     </>

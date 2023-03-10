@@ -39,3 +39,7 @@
 .detail-link {
   color: rgb(0, 0, 0);
 }
+
+#profile-comments {
+  margin-top: 1rem;
+}
